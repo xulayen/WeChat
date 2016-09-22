@@ -84,29 +84,7 @@
 
  * 按钮6可以调取摄像头
  * $("#btn6").Scan();
-
-
-  */
-    facid: 10,
-    分享到朋友圈: true,
-    forword_title: 'cccccccccccccccc',
-    forword_link: 'http://www.baidu.com/'
-});
-
- //当前页面可以转发
- $.Forword();
-
- //微信初始化失败回调
- $.InitWxError(function (res) {
-            alert('初始化失败！')
-});
-
- //按钮5可以调取摄像头
- $("#btn5").Scan();
-
- //按钮6可以调取摄像头
- $("#btn6").Scan();
 	
- https://xulayen.github.io/WeChat/index.html 测试地址
+ * https://xulayen.github.io/WeChat/index.html 测试地址
 
  */
