@@ -88,7 +88,7 @@ $("#btn6").Scan();
 ```
 
 ```html
-<a href="https:xulayen.github.ioWeChatindex.html">https:xulayen.github.ioWeChatindex.html 测试地址</a>
+https:xulayen.github.ioWeChatindex.html 测试地址
 ```
 
  
