@@ -1,4 +1,4 @@
-# WeChat
+﻿# WeChat
 /**
  * Created by xulayen on 2016/9/14.
  * <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -106,5 +106,7 @@
 
  //按钮6可以调取摄像头
  $("#btn6").Scan();
+	
+ https://xulayen.github.io/WeChat/index.html 测试地址
 
  */
