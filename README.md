@@ -1,4 +1,5 @@
 # WeChat
+# WeChat
 /**
  * Created by xulayen on 2016/9/14.
  * <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -49,9 +50,6 @@
  * callback_WeChatBrower        是否是微信浏览器[function () {
  *                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
  *                                }] [静态调用、实例调用]
- *
- *
- *
  * 用法 API:
  * 初始化微信基础信息
  * $.WeChart({
@@ -84,27 +82,8 @@
 
  * 按钮6可以调取摄像头
  * $("#btn6").Scan();
-
-
-  */
-    facid: 10,
-    分享到朋友圈: true,
-    forword_title: 'cccccccccccccccc',
-    forword_link: 'http://www.baidu.com/'
-});
-
- //当前页面可以转发
- $.Forword();
-
- //微信初始化失败回调
- $.InitWxError(function (res) {
-            alert('初始化失败！')
-});
-
- //按钮5可以调取摄像头
- $("#btn5").Scan();
-
- //按钮6可以调取摄像头
- $("#btn6").Scan();
+	
+ * https://xulayen.github.io/WeChat/index.html 测试地址
 
  */
+
