@@ -49,8 +49,6 @@
  * callback_WeChatBrower        是否是微信浏览器[function () {
  *                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
  *                                }] [静态调用、实例调用]
- *
- *
  * 用法 API:
  * 初始化微信基础信息
  * $.WeChart({
