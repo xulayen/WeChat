@@ -55,20 +55,20 @@ callback_WeChatBrower        是否是微信浏览器[function () {
 
 ```js
 $.WeChart({
-api: 'http:127.0.0.1:8544WechartWeChat.asmxGetWeChatParamters',
-callback_success: function (result) {
-var data = JSON.parse(result.children[0].innerHTML);
-this.appId = data.APPID;
-this.timestamp = data.TIMESTAMP;
-this.nonceStr = data.NONCESTR;
-this.signature = data.SIGNATURE;
-},
-scanAuthUrl: "http:152l8u0817.51mypc.cnjtwechartindex.html",
-typenum: 2,
-facid: 10,
-分享到朋友圈: true,
-forword_title: 'cccccccccccccccc',
-forword_link: 'http:www.baidu.com'
+	api: 'http:127.0.0.1:8544WechartWeChat.asmxGetWeChatParamters',
+	callback_success: function (result) {
+		var data = JSON.parse(result.children[0].innerHTML);
+		this.appId = data.APPID;
+		this.timestamp = data.TIMESTAMP;
+		this.nonceStr = data.NONCESTR;
+		this.signature = data.SIGNATURE;
+	},
+	scanAuthUrl: "http:152l8u0817.51mypc.cnjtwechartindex.html",
+	typenum: 2,
+	facid: 10,
+	分享到朋友圈: true,
+	forword_title: 'cccccccccccccccc',
+	forword_link: 'http:www.baidu.com'
 });
 
 当前页面可以转发
