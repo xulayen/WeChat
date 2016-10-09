@@ -87,8 +87,7 @@ $("#btn6").Scan();
 
 ```
 
-```html
-https:xulayen.github.ioWeChatindex.html 测试地址
-```
+
+https://xulayen.github.io/WeChat/index.html 测试地址
 
  
