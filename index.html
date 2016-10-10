@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +86,7 @@
 <!--<br/>-->
 
 <fieldset>
-    <legend>可以调取、分享到朋友圈</legend>
+    <legend>可以调取、分享到朋友圈 </legend>
     <button id="btn5">可以调取</button>
 
     <br/><br/><br/>
@@ -98,10 +97,19 @@
             alert((isWeChat ? '是' : '否') + c);
         });
         $.WeChart({
-            appId: 'wxc46c96addcb23ab9',
-            timestamp: '1448938941',
-            nonceStr: 'k4DIrgjFCvQ2xRRE',
-            SIGNATURE: 'fa186fbd8c49d91d2b3128b56b11637aefdc0180',
+            api: 'https://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
+            scanAuthUrl: "https://xulayen.github.io/WeChat/index.html",
+            async: false,
+            type: 'GET',
+            callback_success: function (result) {
+                this.appId = result.APPID;
+                this.timestamp = result.TIMESTAMP;
+                this.nonceStr = result.NONCESTR;
+                this.signature = result.SIGNATURE;
+            },
+            callback_error: function (error) {
+                alert(error)
+            },
             typenum: '2',
             facid: '00000',
             分享到朋友圈: true,
@@ -113,7 +121,7 @@
         $.Forword();
 
         $.InitWxError(function (res) {
-            alert('初始化失败！' + JSON.stringify(res))
+            alert('初始化失败！'+JSON.stringify(res))
         });
 
         $("#btn5").Scan();
