@@ -19,85 +19,86 @@
 
 </div>
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="static/script/jquery.1.5.2.js"></script>
 <script type="text/javascript" src="static/script/Jquery.WeChat.js"></script>
 
+<!--<fieldset>-->
+<!--<legend>用法1 按钮2可以调取摄像头，并且可以转发</legend>-->
+<!--<button id="btn">不能调取</button>-->
+
+<!--<br/><br/><br/>-->
+<!--<button id="btn2">可以调取摄像头</button>-->
+<!--<script>-->
+<!--//        $.WeChart({-->
+<!--//            api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',-->
+<!--//            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index000.html",-->
+<!--//            typenum: 2,-->
+<!--//            facid: 10,-->
+<!--//            分享到朋友圈: true,-->
+<!--//            forword_title: 'cccccccccccccccc',-->
+<!--//            forword_link: 'http://www.baidu.com/'-->
+<!--//        });-->
+<!--//-->
+<!--//-->
+<!--//        $("#btn2").Scan(function (res) {-->
+<!--//            $("#container").show();-->
+<!--//            $("#container").html(res);-->
+<!--//        }).Forword(function () {-->
+<!--//-->
+<!--//        }, function () {-->
+<!--//-->
+<!--//        });-->
+<!--</script>-->
+<!--</fieldset>-->
+
+<!--<br/>-->
+
+<!--<fieldset>-->
+<!--<legend>用法2 链式调用</legend>-->
+<!--<button id="btn3">可以调取</button>-->
+
+<!--<br/><br/><br/>-->
+<!--<button id="btn4">可以调取摄像头</button>-->
+<!--<script>-->
+<!--//        $("#btn3").WeChart({-->
+<!--//            api: 'http://10.20.26.19:8544/Wechart/WeChat.asmx/GetWeChatParamters',-->
+<!--//            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index000.html",-->
+<!--//            typenum: 2,-->
+<!--//            facid: 10,-->
+<!--//            分享到朋友圈: true,-->
+<!--//            forword_title: 'cccccccccccccccc',-->
+<!--//            forword_link: 'http://www.baidu.com/'-->
+<!--//        }).Forword(function () {-->
+<!--//-->
+<!--//        }, function () {-->
+<!--//-->
+<!--//        }).Scan(function (res) {-->
+<!--//-->
+<!--//        });-->
+<!--//-->
+<!--//        $("#btn4").Scan(function (res) {-->
+<!--//-->
+<!--//        });-->
+<!--</script>-->
+<!--</fieldset>-->
+
+<!--<br/>-->
+
 <fieldset>
-    <legend>用法1 按钮2可以调取摄像头，并且可以转发</legend>
-    <button id="btn">不能调取</button>
-
-    <br/><br/><br/>
-    <button id="btn2">可以调取摄像头</button>
-    <script>
-        //        $.WeChart({
-        //            api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
-        //            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
-        //            typenum: 2,
-        //            facid: 10,
-        //            分享到朋友圈: true,
-        //            forword_title: 'cccccccccccccccc',
-        //            forword_link: 'http://www.baidu.com/'
-        //        });
-        //
-        //
-        //        $("#btn2").Scan(function (res) {
-        //            $("#container").show();
-        //            $("#container").html(res);
-        //        }).Forword(function () {
-        //
-        //        }, function () {
-        //
-        //        });
-    </script>
-</fieldset>
-
-<br/>
-
-<fieldset>
-    <legend>用法2 链式调用</legend>
-    <button id="btn3">可以调取</button>
-
-    <br/><br/><br/>
-    <button id="btn4">可以调取摄像头</button>
-    <script>
-        //        $("#btn3").WeChart({
-        //            api: 'http://10.20.26.19:8544/Wechart/WeChat.asmx/GetWeChatParamters',
-        //            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
-        //            typenum: 2,
-        //            facid: 10,
-        //            分享到朋友圈: true,
-        //            forword_title: 'cccccccccccccccc',
-        //            forword_link: 'http://www.baidu.com/'
-        //        }).Forword(function () {
-        //
-        //        }, function () {
-        //
-        //        }).Scan(function (res) {
-        //
-        //        });
-        //
-        //        $("#btn4").Scan(function (res) {
-        //
-        //        });
-    </script>
-</fieldset>
-
-<br/>
-
-<fieldset>
-    <legend>用法3 分别调取</legend>
+    <legend>可以调取、分享到朋友圈 </legend>
     <button id="btn5">可以调取</button>
 
     <br/><br/><br/>
     <button id="btn6">可以调取摄像头</button>
     <script>
         $.IsWeChatBrower(function (isWeChat) {
-            alert(isWeChat);
+            var c = '微信浏览器';
+            alert((isWeChat ? '是' : '否') + c);
         });
         $.WeChart({
-            api: 'http://8056.yesno.com.local/api/wechat/getwechatparamter',//http://10.20.26.19:8544/Wechart/WeChat.asmx/GetWeChatParamters  http://10.20.26.19:8055/WeChat/GetWeChatParamter
-            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
+            api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
+            scanAuthUrl: "https://xulayen.github.io/WeChat/index.html",
             async: false,
             type: 'GET',
             callback_success: function (result) {
@@ -120,7 +121,7 @@
         $.Forword();
 
         $.InitWxError(function (res) {
-            alert('初始化失败！')
+            alert('初始化失败！'+JSON.stringify(res))
         });
 
         $("#btn5").Scan();
