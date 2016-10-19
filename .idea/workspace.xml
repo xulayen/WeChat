@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" />
-    </list>
+    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="" />
     <ignored path="WeChat.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="Jquery.WeChat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4869762" vertical-offset="2320" max-vertical-offset="16250">
-              <caret line="110" column="56" selection-start-line="110" selection-start-column="56" selection-end-line="110" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.4020385" vertical-offset="2320" max-vertical-offset="16250">
+              <caret line="107" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
               <folding>
                 <element signature="e#8501#14669#0" expanded="false" />
               </folding>
@@ -191,8 +189,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4869762" vertical-offset="2320" max-vertical-offset="16250">
-          <caret line="110" column="56" selection-start-line="110" selection-start-column="56" selection-end-line="110" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.4020385" vertical-offset="2320" max-vertical-offset="16250">
+          <caret line="107" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
           <folding>
             <element signature="e#8501#14669#0" expanded="false" />
           </folding>
