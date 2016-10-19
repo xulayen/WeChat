@@ -56,7 +56,7 @@
  * $.WeChart({
  *   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
  *   callback_success: function (result) {
- *       var data = JSON.parse(result.children[0].innerHTML);
+ *       var data = result;
  *       this.appId = data.APPID;
  *       this.timestamp = data.TIMESTAMP;
  *       this.nonceStr = data.NONCESTR;
