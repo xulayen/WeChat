@@ -35,6 +35,12 @@
  * WeChart([object])            微信参数初始化，可直接$.WeChart进行初始化 [静态调用、实例调用]
  * Scan                         扫描 Function(res) @param res扫描到的内容，[实例调用]
  * Forword                      转发 Function(success,cancel) @success转发成功回调 @cancel取消转发回调 [静态调用、实例调用]
+ *
+ * ForwordToFriend              获取“分享给朋友”按钮点击状态及自定义分享内容接口
+ * ShareQQ                      获取“分享到QQ”按钮点击状态及自定义分享内容接口
+ * ShareWeibo                   获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+ * ShareQZone                   获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+ *
  * InitWxError                  初始化失败 Function(res) 进行调用初始化微信参数是否异常 [静态调用、实例调用]
  * callback_success             成功回调 Function(res)
  * callback_error               失败回调 Function(res)
@@ -69,9 +75,21 @@
  *   forword_title: 'cccccccccccccccc',
  *   forword_link: 'http://www.baidu.com/'
  *  });
-
+ *
  * 当前页面可以转发
  * $.Forword();
+ *
+ * 分享给朋友
+ * $.ForwordToFriend()
+ *
+ * 分享到QQ
+ * $.ShareQQ()
+ *
+ * 分享到微博
+ * $.ShareWeibo()
+ *
+ * 分享到QQ空间
+ * $.ShareQZone()
  *
  * 微信初始化失败回调
  * $.InitWxError(function (res) {
@@ -85,7 +103,7 @@
  * $("#btn6").Scan();
 
 
-  */
+ */
 ;
 (function ($, WX) {
     var WXAPIConfig = {
@@ -141,7 +159,14 @@
         callback_complete: null,
         callback_WeChatBrower: function () {
             location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
-        }
+        },
+        previewCurrentImg: '',
+        previewUrls: [],
+        imgLocalIds: '',
+        latitude: '', // 纬度，浮点数，范围为90 ~ -90
+        longitude: '', // 经度，浮点数，范围为180 ~ -180。
+        speed: '', // 速度，以米/每秒计
+        accuracy: '' // 位置精度
     }, opts = {};
     $.fn.WeChart = $.WeChart = WeChart;
 
@@ -343,6 +368,7 @@
     };
 
     /**
+     * 分享到朋友圈
      @param success 转发成功回调函数 {Function}
      @param cancel  取消转发回调函数 {Function}
      */
@@ -373,6 +399,298 @@
         return _self;
     };
 
+
+    /**
+     *分享给朋友
+     * @param success
+     * @param cancel
+     * @returns {$.fn.ForwordToFriend}
+     * @constructor
+     */
+    $.fn.ForwordToFriend = $.ForwordToFriend = function (success, cancel) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.onMenuShareAppMessage({
+                    title: opts.forword_title, // 分享标题
+                    desc: opts.forword_desc, // 分享描述
+                    link: opts.forword_link, // 分享链接
+                    imgUrl: opts.forword_imgUrl, // 分享图标
+                    type: opts.forword_type, // 分享类型,music、video或link，不填默认为link
+                    dataUrl: opts.forword_dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function (res) {
+                        // 用户确认分享后执行的回调函数
+                        success && success.call(_self, res);
+                    },
+                    cancel: function (res) {
+                        // 用户取消分享后执行的回调函数
+                        cancel && cancel.call(_self, res);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('ForwordToFriend error' + e.message);
+            d.lookDebug('ForwordToFriend error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 分享到QQ
+     * @param success
+     * @param cancel
+     * @returns {$.fn.ShareQQ}
+     * @constructor
+     */
+    $.fn.ShareQQ = $.ShareQQ = function (success, cancel) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.onMenuShareQQ({
+                    title: opts.forword_title, // 分享标题
+                    desc: opts.forword_desc, // 分享描述
+                    link: opts.forword_link, // 分享链接
+                    imgUrl: opts.forword_imgUrl, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        success && success.call(_self, res);
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                        cancel && cancel.call(_self, res);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('ShareQQ error' + e.message);
+            d.lookDebug('ShareQQ error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 分享到微博
+     * @param success
+     * @param cancel
+     * @returns {$.fn.ShareWeibo}
+     * @constructor
+     */
+    $.fn.ShareWeibo = $.ShareWeibo = function (success, cancel) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.onMenuShareWeibo({
+                    title: opts.forword_title, // 分享标题
+                    desc: opts.forword_desc, // 分享描述
+                    link: opts.forword_link, // 分享链接
+                    imgUrl: opts.forword_imgUrl, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        success && success.call(_self, res);
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                        cancel && cancel.call(_self, res);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('ShareWeibo error' + e.message);
+            d.lookDebug('ShareWeibo error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 分享到QQ空间
+     * @param success
+     * @param cancel
+     * @returns {$.fn.ShareQZone}
+     * @constructor
+     */
+    $.fn.ShareQZone = $.ShareQZone = function (success, cancel) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.onMenuShareQZone({
+                    title: opts.forword_title, // 分享标题
+                    desc: opts.forword_desc, // 分享描述
+                    link: opts.forword_link, // 分享链接
+                    imgUrl: opts.forword_imgUrl, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        success && success.call(_self, res);
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                        cancel && cancel.call(_self, res);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('ShareQZone error' + e.message);
+            d.lookDebug('ShareQZone error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 选择图片
+     * @param success
+     * @returns {$.fn.ChooseImg}
+     * @constructor
+     */
+    $.fn.ChooseImg = $.ChooseImg = function (success) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.chooseImage({
+                    count: 9, // 默认9
+                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        opts.imgLocalIds = localIds;
+                        success && success.call(_self, res, localIds);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('ChooseImg error' + e.message);
+            d.lookDebug('ChooseImg error:' + e.message);
+        }
+        return _self;
+    };
+
+    /**
+     * 预览图片
+     * @returns {$.fn.PreviewImage}
+     * @constructor
+     */
+    $.fn.PreviewImage = $.PreviewImage = function () {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.previewImage({
+                    current: opts.previewCurrentImg, // 当前显示图片的http链接
+                    urls: opts.previewUrls // 需要预览的图片http链接列表
+                });
+            });
+        } catch (e) {
+            d.error('PreviewImage error' + e.message);
+            d.lookDebug('PreviewImage error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 上传图片接口
+     * @returns {$.fn.UploadImage}
+     * @constructor
+     */
+    $.fn.UploadImage = $.UploadImage = function (success) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.uploadImage({
+                    localId: opts.imgLocalIds, // 需要上传的图片的本地ID，由chooseImage接口获得
+                    isShowProgressTips: 1, // 默认为1，显示进度提示
+                    success: function (res) {
+                        var serverId = res.serverId; // 返回图片的服务器端ID
+                        success && success.call(_self, res, serverId);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('UploadImage error' + e.message);
+            d.lookDebug('UploadImage error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 获取网络状态
+     * @type {Function}
+     */
+    $.fn.GetNetWorkType = $.GetNetWorkType = function (success) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.getNetworkType({
+                    success: function (res) {
+                        var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+                        success && success.call(_self, res, networkType);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('GetNetWorkType error' + e.message);
+            d.lookDebug('GetNetWorkType error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 获取地理位置
+     * @type {Function}
+     */
+    $.fn.GetLocation = $.GetLocation = function (success) {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.getLocation({
+                    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                    success: function (res) {
+                        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                        var speed = res.speed; // 速度，以米/每秒计
+                        var accuracy = res.accuracy; // 位置精度
+                        success && success.call(_self, res, latitude, longitude, speed, accuracy);
+                    }
+                });
+            });
+        } catch (e) {
+            d.error('GetLocation error' + e.message);
+            d.lookDebug('GetLocation error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 打开地图
+     * @type {Function}
+     */
+    $.fn.OpenLocation= $.OenLocation= function () {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.openLocation({
+                    latitude: opts.latitude, // 纬度，浮点数，范围为90 ~ -90
+                    longitude: opts.longitude, // 经度，浮点数，范围为180 ~ -180。
+                    name: '', // 位置名
+                    address: '', // 地址详情说明
+                    scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                    infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+                });
+            });
+        } catch (e) {
+            d.error('OpenLocation error' + e.message);
+            d.lookDebug('OpenLocation error:' + e.message);
+        }
+        return _self;
+    };
+
+
+
+
     /**
      * 微信初始化失败回调函数
      * @type {Function}
@@ -401,7 +719,7 @@
         var _self = this;
         callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
-    }
+    };
 
 
 })(jQuery, wx);
