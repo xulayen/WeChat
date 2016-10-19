@@ -671,6 +671,9 @@
     $.fn.OpenLocation = $.OenLocation = function () {
         var _self = this;
         try {
+
+            alert(opts.latitude);
+
             WX.ready(function () {
                 WX.openLocation({
                     latitude: opts.latitude, // 纬度，浮点数，范围为90 ~ -90
