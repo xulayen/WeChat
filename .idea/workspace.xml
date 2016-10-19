@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" />
-    </list>
+    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="" />
     <ignored path="WeChat.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="Jquery.WeChat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42921856" vertical-offset="596" max-vertical-offset="19850">
-              <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+            <state vertical-scroll-proportion="1.8403171" vertical-offset="1500" max-vertical-offset="19850">
+              <caret line="125" column="28" selection-start-line="1" selection-start-column="1" selection-end-line="125" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -143,7 +141,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="1" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -197,8 +195,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42921856" vertical-offset="596" max-vertical-offset="19850">
-          <caret line="39" column="74" selection-start-line="39" selection-start-column="74" selection-end-line="39" selection-end-column="74" />
+        <state vertical-scroll-proportion="1.8403171" vertical-offset="1500" max-vertical-offset="19850">
+          <caret line="125" column="28" selection-start-line="1" selection-start-column="1" selection-end-line="125" selection-end-column="28" />
           <folding />
         </state>
       </provider>
