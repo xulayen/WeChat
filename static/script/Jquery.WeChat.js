@@ -4,7 +4,7 @@
  * <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
  *
  * debug                        是否启用调试模式 [false]
- * scanAuthUrl                  调取扫一扫的授权页面，必须是当前页面的绝对地址 ['']
+ * scanAuthUrl                  调取扫一扫的授权页面，必须是当前页面的绝对地址 [location.href]
  * facid                        当前厂家 ['00446']
  * typenum                      1、服务号 2、订阅号 ['1']
  * api                          获取微信appid、timestamp、nonceStr、signature的api地址 ['']
@@ -122,7 +122,7 @@
         api: '',
         facid: '00446',
         typenum: '1',
-        scanAuthUrl: '',
+        scanAuthUrl: location.href,
         hideOptionMenu: true,
         forword_title: '', // 分享标题
         forword_desc: '', // 分享描述
