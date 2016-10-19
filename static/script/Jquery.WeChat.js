@@ -2,7 +2,9 @@
  * Created by xulayen on 2016/9/14.
  * <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
  * <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
- *
+ * *******************初始化入口***************************************************************************************************************************
+ * WeChart([object])            微信参数初始化，可直接$.WeChart进行初始化 [静态调用、实例调用]
+ * *******************微信初始化参数***********************************************************************************************************************
  * debug                        是否启用调试模式 [false]
  * scanAuthUrl                  调取扫一扫的授权页面，必须是当前页面的绝对地址 [location.href]
  * facid                        当前厂家 ['00446']
@@ -32,34 +34,39 @@
  * forword_imgUrl               分享图标 ['']
  * forword_type                 分享类型{music、video、link} [link]
  * forword_dataUrl              如果type={music或video}，则要提供数据链接 ['']
- * WeChart([object])            微信参数初始化，可直接$.WeChart进行初始化 [静态调用、实例调用]
- * Scan                         扫描 Function(res) @param res扫描到的内容，[实例调用]
- * Forword                      转发 Function(success,cancel) @success转发成功回调 @cancel取消转发回调 [静态调用、实例调用]
- *
- * ForwordToFriend              获取“分享给朋友”按钮点击状态及自定义分享内容接口
- * ShareQQ                      获取“分享到QQ”按钮点击状态及自定义分享内容接口
- * ShareWeibo                   获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
- * ShareQZone                   获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
- *
- * InitWxError                  初始化失败 Function(res) 进行调用初始化微信参数是否异常 [静态调用、实例调用]
- * callback_success             成功回调 Function(res)
- * callback_error               失败回调 Function(res)
  * async                        是否异步 {true/false} [true]
  * data                         数据入参 {object} [object]
  * type                         提交方式 {POST/GET} [POST]
  * ContentType                  内容编码类型 [application/x-www-form-urlencoded]
  * cache                        设置为false将不会从浏览器缓存中加载请求信息 [true]
+ * ********************AJAX异步提交debugger状态下回调*******************************************************************************************************************************
+ * callback_success             成功回调 Function(res)
+ * callback_error               失败回调 Function(res)
  * callback_beforeSend          请求完成后调用的回调函数（请求成功或失败时均调用）
  * callback_complete            发送请求前可以修改XMLHttpRequest对象的函数，例如添加自定义HTTP头。在beforeSend中如果返回false可以取消本次ajax请求
+ * ********************功能模块函数（除了Scan函数是实例函数，其他都是[静态/实例函数]）*******************************************************************************************************************************
+ * Scan                         扫描 Function(res) @param res扫描到的内容，[实例调用]
+ * Forword                      转发 Function(success,cancel) @success转发成功回调 @cancel取消转发回调 [静态调用、实例调用]
+ * ForwordToFriend              获取“分享给朋友”按钮点击状态及自定义分享内容接口
+ * ShareQQ                      获取“分享到QQ”按钮点击状态及自定义分享内容接口
+ * ShareWeibo                   获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
+ * ShareQZone                   获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
+ * ChooseImg                    选择图片
+ * PreviewImage                 预览图片
+ * UploadImage                  上传图片
+ * GetNetWorkType               获取网络状态
+ * GetLocation                  获取地理位置
+ * OpenLocation                 打开地理位置
+ * HideOptionMenu               隐藏右上角菜单
+ * ShowOptionMenu               显示右上角菜单
+ * CloseWindow                  关闭页面
+ * InitWxError                  初始化失败 Function(res) 进行调用初始化微信参数是否异常 [静态调用、实例调用]
  * callback_WeChatBrower        是否是微信浏览器[function () {
  *                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
  *                                }] [静态调用、实例调用]
- *
- *
- *
  * 用法 API:
  * 初始化微信基础信息
- * $.WeChart({
+ * var wecharManage=$.WeChart({
  *   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
  *   callback_success: function (result) {
  *       var data = result;
@@ -77,32 +84,46 @@
  *  });
  *
  * 当前页面可以转发
- * $.Forword();
+ * $.Forword(success,cancel) wecharManage.Forword(success,cancel)
  *
  * 分享给朋友
- * $.ForwordToFriend()
+ * $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
  *
  * 分享到QQ
- * $.ShareQQ()
+ * $.ShareQQ(success,cancel) wecharManage.ShareQQ(success,cancel)
  *
  * 分享到微博
- * $.ShareWeibo()
+ * $.ShareWeibo(success,cancel) wecharManage.ShareWeibo(success,cancel)
  *
  * 分享到QQ空间
- * $.ShareQZone()
+ * $.ShareQZone(success,cancel) wecharManage.ShareQZone(success,cancel)
+ *
+ * 分享给朋友
+ * $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
  *
  * 微信初始化失败回调
- * $.InitWxError(function (res) {
- *           alert('初始化失败！')
- * });
-
+ * $.InitWxError(fn) wecharManage.InitWxError(fn)
+ *
+ * 获取地理位置
+ * $.GetLocation(success) wecharManage.GetLocation(success)
+ *
+ * 获取网络状态
+ * $.GetNetWorkType(success) wecharManage.GetNetWorkType(success)
+ *
+ * 隐藏菜单
+ * $.HideOptionMenu() wecharManage.HideOptionMenu()
+ *
+ * 显示菜单
+ * $.ShowOptionMenu() wecharManage.ShowOptionMenu()
+ *
+ * 关闭页面
+ * $.CloseWindow() wecharManage.CloseWindow()
+ *
  * 按钮5可以调取摄像头
- * $("#btn5").Scan();
-
+ * $("#btn5").Scan(success)
+ *
  * 按钮6可以调取摄像头
- * $("#btn6").Scan();
-
-
+ * $("#btn6").Scan(success);
  */
 ;
 (function ($, WX) {
@@ -125,18 +146,18 @@
         timestamp: null,
         nonceStr: null,
         signature: null,
-        分享到朋友圈: false,//'menuItem:share:timeline'
-        发送给朋友: false,//, 'menuItem:share:appMessage',
-        收藏: false,//, 'menuItem:favorite',
-        在Safari中打开: false,//,'menuItem:openWithSafari',
-        邮件: false,//,'menuItem:share:email',
-        分享到QQ: false,//,'menuItem:share:qq',
-        分享到QQ空间: false,//, 'menuItem:share:QZone',
-        分享到Weibo: false,//, 'menuItem:share:weiboApp',
-        复制链接: false,//, 'menuItem:copyUrl',
-        调整字体: false,//, 'menuItem:setFont',
-        阅读模式: false,//,'menuItem:readMode',
-        刷新: false,//,'menuItem:refresh',
+        分享到朋友圈: false, //'menuItem:share:timeline'
+        发送给朋友: false, //, 'menuItem:share:appMessage',
+        收藏: false, //, 'menuItem:favorite',
+        在Safari中打开: false, //,'menuItem:openWithSafari',
+        邮件: false, //,'menuItem:share:email',
+        分享到QQ: false, //,'menuItem:share:qq',
+        分享到QQ空间: false, //, 'menuItem:share:QZone',
+        分享到Weibo: false, //, 'menuItem:share:weiboApp',
+        复制链接: false, //, 'menuItem:copyUrl',
+        调整字体: false, //, 'menuItem:setFont',
+        阅读模式: false, //,'menuItem:readMode',
+        刷新: false, //,'menuItem:refresh',
         api: '',
         facid: '00446',
         typenum: '1',
@@ -159,14 +180,7 @@
         callback_complete: null,
         callback_WeChatBrower: function () {
             location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
-        },
-        previewCurrentImg: '',
-        previewUrls: [],
-        imgLocalIds: '',
-        latitude: '', // 纬度，浮点数，范围为90 ~ -90
-        longitude: '', // 经度，浮点数，范围为180 ~ -180。
-        speed: '', // 速度，以米/每秒计
-        accuracy: '' // 位置精度
+        }
     }, opts = {};
     $.fn.WeChart = $.WeChart = WeChart;
 
@@ -355,7 +369,7 @@
                 WX.scanQRCode({
                     needResult: 1, //
                     success: function (res) {
-                        var result = res.resultStr;//当needResult 为 1 时，扫码返回的结果
+                        var result = res.resultStr; //当needResult 为 1 时，扫码返回的结果
                         success && success.call(_self, result);
                     }
                 });
@@ -571,13 +585,13 @@
      * @returns {$.fn.PreviewImage}
      * @constructor
      */
-    $.fn.PreviewImage = $.PreviewImage = function () {
+    $.fn.PreviewImage = $.PreviewImage = function (previewCurrentImg, previewUrls) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.previewImage({
-                    current: opts.previewCurrentImg, // 当前显示图片的http链接
-                    urls: opts.previewUrls // 需要预览的图片http链接列表
+                    current: previewCurrentImg, // 当前显示图片的http链接
+                    urls: previewUrls // 需要预览的图片http链接列表 []
                 });
             });
         } catch (e) {
@@ -648,10 +662,10 @@
                 WX.getLocation({
                     type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
                     success: function (res) {
-                        var latitude = opts.latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                        var longitude = opts.longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                        var speed = opts.speed = res.speed; // 速度，以米/每秒计
-                        var accuracy = opts.accuracy = res.accuracy; // 位置精度
+                        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                        var speed = res.speed; // 速度，以米/每秒计
+                        var accuracy = res.accuracy; // 位置精度
                         success && success.call(_self, res, latitude, longitude, speed, accuracy);
                     }
                 });
@@ -668,20 +682,17 @@
      * 打开地图
      * @type {Function}
      */
-    $.fn.OpenLocation = $.OenLocation = function () {
+    $.fn.OpenLocation = $.OpenLocation = function (res) {
         var _self = this;
         try {
-
-            alert(opts.latitude);
-
             WX.ready(function () {
                 WX.openLocation({
-                    latitude: opts.latitude, // 纬度，浮点数，范围为90 ~ -90
-                    longitude: opts.longitude, // 经度，浮点数，范围为180 ~ -180。
-                    name: '', // 位置名
-                    address: '', // 地址详情说明
-                    scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
-                    infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+                    latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
+                    longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
+                    name: res.name || '', // 位置名
+                    address: res.address || '', // 地址详情说明
+                    scale: res.scale || 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                    infoUrl: res.infoUrl || '' // 在查看位置界面底部显示的超链接,可点击跳转
                 });
             });
         } catch (e) {
@@ -691,6 +702,57 @@
         return _self;
     };
 
+    /**
+     * 隐藏右上角菜单接口
+     * @type {Function}
+     */
+    $.fn.HideOptionMenu = $.HideOptionMenu = function () {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.hideOptionMenu();
+            });
+        } catch (e) {
+            d.error('HideOptionMenu error' + e.message);
+            d.lookDebug('HideOptionMenu error:' + e.message);
+        }
+        return _self;
+    };
+
+
+    /**
+     * 显示右上角按钮
+     * @type {Function}
+     */
+    $.fn.ShowOptionMenu = $.ShowOptionMenu = function () {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.showOptionMenu();
+            });
+        } catch (e) {
+            d.error('ShowOptionMenu error' + e.message);
+            d.lookDebug('ShowOptionMenu error:' + e.message);
+        }
+        return _self;
+    };
+
+    /**
+     * 关闭当前网页窗口接口
+     * @type {Function}
+     */
+    $.fn.CloseWindow = $.CloseWindow = function () {
+        var _self = this;
+        try {
+            WX.ready(function () {
+                WX.closeWindow();
+            });
+        } catch (e) {
+            d.error('CloseWindow error' + e.message);
+            d.lookDebug('CloseWindow error:' + e.message);
+        }
+        return _self;
+    };
 
     /**
      * 微信初始化失败回调函数

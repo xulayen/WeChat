@@ -29,10 +29,10 @@
       <file leaf-file-name="Jquery.WeChat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36495537" vertical-offset="16523" max-vertical-offset="18300">
-              <caret line="674" column="33" selection-start-line="674" selection-start-column="33" selection-end-line="674" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.4869762" vertical-offset="2320" max-vertical-offset="16250">
+              <caret line="110" column="56" selection-start-line="110" selection-start-column="56" selection-end-line="110" selection-end-column="56" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#8501#14669#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -191,10 +191,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36495537" vertical-offset="16523" max-vertical-offset="18300">
-          <caret line="674" column="33" selection-start-line="674" selection-start-column="33" selection-end-line="674" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.4869762" vertical-offset="2320" max-vertical-offset="16250">
+          <caret line="110" column="56" selection-start-line="110" selection-start-column="56" selection-end-line="110" selection-end-column="56" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#8501#14669#0" expanded="false" />
           </folding>
         </state>
       </provider>
