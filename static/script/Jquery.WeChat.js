@@ -62,26 +62,26 @@
  * CloseWindow                  关闭页面
  * InitWxError                  初始化失败 Function(res) 进行调用初始化微信参数是否异常 [静态调用、实例调用]
  * callback_WeChatBrower        是否是微信浏览器[function () {
- *                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
- *                                }] [静态调用、实例调用]
+*                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
+*                                }] [静态调用、实例调用]
  * 用法 API:
  * 初始化微信基础信息
  * var wecharManage=$.WeChart({
- *   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
- *   callback_success: function (result) {
- *       var data = result;
- *       this.appId = data.APPID;
- *       this.timestamp = data.TIMESTAMP;
- *       this.nonceStr = data.NONCESTR;
- *       this.signature = data.SIGNATURE;
- *   },
- *   scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
- *   typenum: 2,
- *   facid: 10,
- *   分享到朋友圈: true,
- *   forword_title: 'cccccccccccccccc',
- *   forword_link: 'http://www.baidu.com/'
- *  });
+*   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
+*   callback_success: function (result) {
+*       var data = result;
+*       this.appId = data.APPID;
+*       this.timestamp = data.TIMESTAMP;
+*       this.nonceStr = data.NONCESTR;
+*       this.signature = data.SIGNATURE;
+*   },
+*   scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
+*   typenum: 2,
+*   facid: 10,
+*   分享到朋友圈: true,
+*   forword_title: 'cccccccccccccccc',
+*   forword_link: 'http://www.baidu.com/'
+*  });
  *
  * 当前页面可以转发
  * $.Forword(success,cancel) wecharManage.Forword(success,cancel)
@@ -120,10 +120,8 @@
  * $.CloseWindow() wecharManage.CloseWindow()
  *
  * 按钮5可以调取摄像头
- * $("#btn5").Scan(success)
+ * $("#btn5").Click(function(){wecharManage.Scan(success) $.CloseWindow()});
  *
- * 按钮6可以调取摄像头
- * $("#btn6").Scan(success);
  */
 ;
 (function ($, WX) {
@@ -179,9 +177,10 @@
         callback_beforeSend: null,
         callback_complete: null,
         callback_WeChatBrower: function () {
-            location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
+            location.href = window.location.href = 'http://dm.zhsh.co/Helix/_public/notwechart/authorize.html'
         }
     }, opts = {};
+
     $.fn.WeChart = $.WeChart = WeChart;
 
     /**
@@ -234,7 +233,7 @@
                         async: opts.async,
                         ContentType: opts.contentType,
                         cache: opts.cache,
-                        data: opts.data || {"url": opts.scanAuthUrl, "typenum": opts.typenum, "facid": opts.facid},
+                        data: opts.data || { "url": opts.scanAuthUrl, "typenum": opts.typenum, "facid": opts.facid },
                         success: function (result) {
                             d.lookDebug('Ajax success:' + JSON.stringify(result));
                             opts.callback_success && opts.callback_success.call(opts, result);
@@ -347,7 +346,7 @@
                         if (opts.hideOptionMenu) {
                             WX.hideOptionMenu();
                         }
-                        WX.showMenuItems({menuList: menuList});
+                        WX.showMenuItems({ menuList: menuList });
                     });
                 } catch (e) {
                     d.error('config.wxInit error' + e.message);
@@ -362,17 +361,15 @@
     /**
      @param success 扫描成功回调函数 {Function}
      */
-    $.fn.Scan = function (success) {
+    $.fn.Scan = $.Scan = function (success) {
         var _self = this;
         try {
-            _self.click(function () {
-                WX.scanQRCode({
-                    needResult: 1, //
-                    success: function (res) {
-                        var result = res.resultStr; //当needResult 为 1 时，扫码返回的结果
-                        success && success.call(_self, result);
-                    }
-                });
+            WX.scanQRCode({
+                needResult: 1, //
+                success: function (res) {
+                    var result = res.resultStr; //当needResult 为 1 时，扫码返回的结果
+                    success && success.call(_self, result);
+                }
             });
         } catch (e) {
             d.error('Scan error' + e.message);
@@ -771,18 +768,20 @@
      * @type {Function}
      */
     $.fn.IsWeChatBrower = $.IsWeChatBrower = function (callback) {
+        var ua = window.navigator.userAgent.toLowerCase();
+        var _self = this;
         if (!callback) {
             if (!opts.callback_WeChatBrower) {
                 d.error('请先初始化参数IsWeChatBrower函数的回调函数callback_WeChatBrower!');
                 return;
             }
             callback = opts.callback_WeChatBrower;
+            if (ua.match(/micromessenger/i) != 'micromessenger') {
+                callback && callback.call(_self, ua.match(/micromessenger/i) === 'micromessenger');
+            }
+        } else {
+            callback && callback.call(_self, ua.match(/micromessenger/i) === 'micromessenger');
         }
-        var ua = window.navigator.userAgent.toLowerCase();
-        var _self = this;
-        callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
     };
-
-
 })(jQuery, wx);
