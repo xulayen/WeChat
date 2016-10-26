@@ -68,7 +68,7 @@
 
 </p>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
-<script src="static/script/jquery.1.5.2.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 <script src="static/script/Jquery.WeChat.1.2.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 
@@ -77,7 +77,7 @@
     var wechatManage = $.WeChart({
         api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
         type: 'GET',
-        facid: '00001',
+        facid: '00000',
         typenum: '2',
         async: false,
         callback_success: function (result) {
@@ -112,21 +112,17 @@
         $("#result").html("分享成功：" + JSON.stringify(res));
     });
 
-    $("#btnScan").Scan(function (res) {
-        $("#result").html("扫描结果：" + res);
+    $("#btnScan").click(function () {
+        $.Scan(function (res) {
+            $("#result").html("扫描结果：" + res);
+        });
     });
 
 
     $("#btnLocation").click(function () {
         wechatManage.GetLocation(function (res) {
             $("#result").html("获取位置：" + JSON.stringify(res));
-            wechatManage.OpenLocation({
-                latitude: res.latitude,
-                longitude: res.longitude,
-                name: '咔咔咔',
-                address: '咔咔咔',
-                infoUrl: 'kakaka'
-            });
+
         });
     });
 
@@ -198,7 +194,7 @@
                             "end_timestamp": 1479392689
                         },
                         "sku": {
-                            "quantity": 50
+                            "quantity": 1
                         },
                         "get_limit": 1,
                         "use_custom_code": false,
@@ -224,30 +220,33 @@
         wechatManage.CreateCard(data, function (result, errorcode, cardid) {
             if (errorcode === 0) {
                 c = cardid;
+                localStorage.setItem("cardid",cardid);
+                alert('ok')
             } else {
                 alert(result.errmsg);
             }
-        }). GetWxCardSignature(c, function (result, Signature_api_ticket) {
-            s = Signature_api_ticket;
-            console.log(s);
+            $.GetWxCardSignature(cardid || localStorage.getItem("cardid"), function (result, Signature_api_ticket) {
+                s = Signature_api_ticket;
+                localStorage.setItem("Signature_api_ticket",Signature_api_ticket);
+                console.log(s);
+            });
         });
     });
 
     $("#btnAddCard").click(function () {
-        wechatManage.AddCard(c, s, function (res, cardlist) {
+        wechatManage.AddCard(c || localStorage.getItem("cardid"), s || localStorage.getItem("Signature_api_ticket"), function (res, cardlist) {
             alert(JSON.parse(cardlist))
         });
     });
 
     //创建卡券二维码（也需要cardid）
     $("#btnCreateCardQR").click(function () {
-        debugger;
         var data = {
             "action_name": "QR_CARD",
             "expire_seconds": 1800,
             "action_info": {
                 "card": {
-                    "card_id": c,
+                    "card_id": c || localStorage.getItem("cardid"),
                     "code": "",
                     "openid": "",
                     "is_unique_code": false,
@@ -257,6 +256,7 @@
         };
         wechatManage.CreateCardQR(data, function (result, errorcode, qrcode_url) {
             var img = '<img src="' + qrcode_url + '" >';
+            alert(errorcode);
             $("#result").html(img);
 
         });
