@@ -3,132 +3,269 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <!--电话号码，在微信浏览器上正常显示-->
-    <meta name="format-detection" content="telephone=no">
-    <title>扫描抽奖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>WeChat</title>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        button {
+            border-right: #7b9ebd 1px solid;
+            padding-right: 2px;
+            border-top: #7b9ebd 1px solid;
+            padding-left: 2px;
+            font-size: 12px;
+            filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+            border-left: #7b9ebd 1px solid;
+            cursor: hand;
+            color: black;
+            padding-top: 2px;
+            border-bottom: #7b9ebd 1px solid;
+            padding: 10px 20px;
+            margin: 5px 10px;
+        }
+    </style>
 </head>
 <body>
+<p>
+    分享到朋友圈、分享给朋友
+</p>
+<button id="btnScan">
+    扫一扫
+</button>
+<button id="btnLocation">
+    获取地理位置
+</button>
+<button id="btnNetwork">
+    获取网络
+</button>
+<button id="btnYC">
+    隐藏右上角按钮
+</button>
+<button id="btnXS">
+    显示右上角按钮
+</button>
+<button id="btnGB">
+    关闭页面
+</button>
+<button id="btnAddCard">
+    添加卡券
+</button>
+<button id="btnCreateCard">
+    创建卡券
+</button>
+<button id="btnVibrate">
+    点击震动
+</button>
+<button id="btnCreateCardQR">
+    创建卡券二维码
+</button>
+<p id="result">
+
+</p>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="static/script/jquery.1.5.2.js" type="text/javascript"></script>
+<script src="static/script/Jquery.WeChat.1.2.0.js" type="text/javascript"></script>
+<script type="text/javascript">
 
 
-<div id="container" style="display: none;">
-
-</div>
-
-<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script src="static/script/jquery.1.5.2.js"></script>
-<script type="text/javascript" src="static/script/Jquery.WeChat.js"></script>
-
-<!--<fieldset>-->
-<!--<legend>用法1 按钮2可以调取摄像头，并且可以转发</legend>-->
-<!--<button id="btn">不能调取</button>-->
-
-<!--<br/><br/><br/>-->
-<!--<button id="btn2">可以调取摄像头</button>-->
-<!--<script>-->
-<!--//        $.WeChart({-->
-<!--//            api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',-->
-<!--//            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index000.html",-->
-<!--//            typenum: 2,-->
-<!--//            facid: 10,-->
-<!--//            分享到朋友圈: true,-->
-<!--//            forword_title: 'cccccccccccccccc',-->
-<!--//            forword_link: 'http://www.baidu.com/'-->
-<!--//        });-->
-<!--//-->
-<!--//-->
-<!--//        $("#btn2").Scan(function (res) {-->
-<!--//            $("#container").show();-->
-<!--//            $("#container").html(res);-->
-<!--//        }).Forword(function () {-->
-<!--//-->
-<!--//        }, function () {-->
-<!--//-->
-<!--//        });-->
-<!--</script>-->
-<!--</fieldset>-->
-
-<!--<br/>-->
-
-<!--<fieldset>-->
-<!--<legend>用法2 链式调用</legend>-->
-<!--<button id="btn3">可以调取</button>-->
-
-<!--<br/><br/><br/>-->
-<!--<button id="btn4">可以调取摄像头</button>-->
-<!--<script>-->
-<!--//        $("#btn3").WeChart({-->
-<!--//            api: 'http://10.20.26.19:8544/Wechart/WeChat.asmx/GetWeChatParamters',-->
-<!--//            scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index000.html",-->
-<!--//            typenum: 2,-->
-<!--//            facid: 10,-->
-<!--//            分享到朋友圈: true,-->
-<!--//            forword_title: 'cccccccccccccccc',-->
-<!--//            forword_link: 'http://www.baidu.com/'-->
-<!--//        }).Forword(function () {-->
-<!--//-->
-<!--//        }, function () {-->
-<!--//-->
-<!--//        }).Scan(function (res) {-->
-<!--//-->
-<!--//        });-->
-<!--//-->
-<!--//        $("#btn4").Scan(function (res) {-->
-<!--//-->
-<!--//        });-->
-<!--</script>-->
-<!--</fieldset>-->
-
-<!--<br/>-->
-
-<fieldset>
-    <legend>可以调取、分享到朋友圈 </legend>
-    <button id="btn5">可以调取</button>
-
-    <br/><br/><br/>
-    <button id="btn6">可以调取摄像头</button>
-    <script>
-        $.IsWeChatBrower(function (isWeChat) {
-            var c = '微信浏览器';
-            alert((isWeChat ? '是' : '不是') + c);
-        });
-        $.WeChart({
-            api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
-            scanAuthUrl: "https://xulayen.github.io/WeChat/index.html",
-            async: false,
-            type: 'GET',
-            callback_success: function (result) {
-                this.appId = result.APPID;
-                this.timestamp = result.TIMESTAMP;
-                this.nonceStr = result.NONCESTR;
-                this.signature = result.SIGNATURE;
+    var cardid;
+    var wechatManage = $.WeChart({
+        api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
+        type: 'GET',
+        facid: '00001',
+        typenum: '2',
+        async: false,
+        callback_success: function (result) {
+            this.appId = result.APPID;
+            this.timestamp = result.TIMESTAMP;
+            this.nonceStr = result.NONCESTR;
+            this.signature = result.SIGNATURE;
+            this.access_token = result.ACCESS_TOKEN;
+        },
+        分享到朋友圈: true,
+        发送给朋友: true,
+        在Safari中打开: true,
+        分享到QQ: true,
+        分享到Weibo: true,
+        分享到QQ空间: true,
+        forword_title: '测试分享到朋友圈',
+        forword_link: 'http://www.baidu.com/',
+        WeChatCard: {
+            CreateCard: {
+                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card'
             },
-            callback_error: function (error) {
-                alert(error)
+            CreateCardQR: {
+                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR'
             },
-            typenum: '2',
-            facid: '00000',
-            分享到朋友圈: true,
-            forword_title: '这是测试的转发',
-            forword_link: 'http://www.baidu.com/'
+            GetWxCardSignature: {
+                api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign'
+            }
+        }
+    });
+
+    wechatManage.Forword(function (res) {
+        $("#result").html("分享成功：" + JSON.stringify(res));
+    });
+
+    $("#btnScan").Scan(function (res) {
+        $("#result").html("扫描结果：" + res);
+    });
+
+
+    $("#btnLocation").click(function () {
+        wechatManage.GetLocation(function (res) {
+            $("#result").html("获取位置：" + JSON.stringify(res));
+            wechatManage.OpenLocation({
+                latitude: res.latitude,
+                longitude: res.longitude,
+                name: '咔咔咔',
+                address: '咔咔咔',
+                infoUrl: 'kakaka'
+            });
         });
+    });
 
 
-        $.Forword();
-
-        $.InitWxError(function (res) {
-            alert('初始化失败！'+JSON.stringify(res))
+    $("#btnNetwork").click(function () {
+        wechatManage.GetNetWorkType(function (res) {
+            $("#result").html("获取网络：" + JSON.stringify(res));
         });
+    });
 
-        $("#btn5").Scan();
 
-        $("#btn6").Scan();
+    wechatManage.ForwordToFriend(function (res) {
+        $("#result").html("分享给朋友：" + JSON.stringify(res));
+    }, function (res) {
+        $("#result").html("取消分享给朋友：" + JSON.stringify(res));
+    });
 
-    </script>
-</fieldset>
+
+    wechatManage.ShareQQ(function (res) {
+        $("#result").html("分享QQ：" + JSON.stringify(res));
+    }, function (res) {
+        $("#result").html("取消分享QQ：" + JSON.stringify(res));
+    });
+
+    wechatManage.ShareWeibo(function (res) {
+        $("#result").html("分享到微博：" + JSON.stringify(res));
+    }, function (res) {
+        $("#result").html("取消分享到微博：" + JSON.stringify(res));
+    });
+
+    wechatManage.ShareQZone(function (res) {
+        $("#result").html("分享到QQ空间：" + JSON.stringify(res));
+    }, function (res) {
+        $("#result").html("取消分享到QQ空间：" + JSON.stringify(res));
+    });
+
+    $("#btnYC").click(function () {
+        wechatManage.HideOptionMenu();
+    });
+    $("#btnXS").click(function () {
+        wechatManage.ShowOptionMenu();
+    });
+
+    $("#btnGB").click(function () {
+        wechatManage.CloseWindow();
+    });
+
+
+    var c, s;
+    //1、创建卡券（卡券创建成功的同时获取签名）
+    $("#btnCreateCard").click(function () {
+        var data = {
+            "card": {
+                "card_type": "GROUPON",
+                "groupon": {
+                    "base_info": {
+                        "logo_url": "http://i2.s1.dpfile.com/pc/mc/6758d752ef693239c5976837311b9c53(450c280)/thumb.jpg",
+                        "brand_name": "赤坂亭",
+                        "code_type": "CODE_TYPE_TEXT",
+                        "title": "200元赤坂亭现金券",
+                        "sub_title": "周末狂欢必备",
+                        "color": "Color010",
+                        "notice": "使用时向服务员出示此券",
+                        "service_phone": "020-10100011",
+                        "description": "关于吃饭这件事，高档的食材、优雅的环境、精致的摆盘固然是锦上添花，但最要紧的还是一份对于食物的用心，吃的是一份温暖的人情味。818魔都那些走心又走胃的美食店，从食物里感受一份真诚，给你一段难忘的回忆。",
+                        "date_info": {
+                            "type": "DATE_TYPE_FIX_TIME_RANGE",
+                            "begin_timestamp": 1476096689,
+                            "end_timestamp": 1479392689
+                        },
+                        "sku": {
+                            "quantity": 50
+                        },
+                        "get_limit": 1,
+                        "use_custom_code": false,
+                        "bind_openid": false,
+                        "can_share": false,
+                        "can_give_friend": false,
+                        "location_id_list": [
+                            123,
+                            12321,
+                            345345
+                        ],
+                        "custom_url_name": "立即使用",
+                        "custom_url": "http://www.dianping.com/search/keyword/1/0_%E8%B5%A4%E5%9D%82%E4%BA%AD",
+                        "custom_url_sub_title": "赤坂亭",
+                        "promotion_url_name": "更多优惠",
+                        "promotion_url": "http://t.dianping.com/shanghai",
+                        "source": "大众点评"
+                    },
+                    "deal_detail": "您在消费时，出示打印的团购券序列号凭证或团购券序列号短信即可。商户会验证的。无论您选择哪种方式，每个团购券序列号只能使用一次。"
+                }
+            }
+        };
+        wechatManage.CreateCard(data, function (result, errorcode, cardid) {
+            if (errorcode === 0) {
+                c = cardid;
+            } else {
+                alert(result.errmsg);
+            }
+        }). GetWxCardSignature(c, function (result, Signature_api_ticket) {
+            s = Signature_api_ticket;
+            console.log(s);
+        });
+    });
+
+    $("#btnAddCard").click(function () {
+        wechatManage.AddCard(c, s, function (res, cardlist) {
+            alert(JSON.parse(cardlist))
+        });
+    });
+
+    //创建卡券二维码（也需要cardid）
+    $("#btnCreateCardQR").click(function () {
+        debugger;
+        var data = {
+            "action_name": "QR_CARD",
+            "expire_seconds": 1800,
+            "action_info": {
+                "card": {
+                    "card_id": c,
+                    "code": "",
+                    "openid": "",
+                    "is_unique_code": false,
+                    "outer_id": 1
+                }
+            }
+        };
+        wechatManage.CreateCardQR(data, function (result, errorcode, qrcode_url) {
+            var img = '<img src="' + qrcode_url + '" >';
+            $("#result").html(img);
+
+        });
+    });
+
+
+    $("button").click(function () {
+        navigator.vibrate(2);
+    });
+</script>
 </body>
 </html>
