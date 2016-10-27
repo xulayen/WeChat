@@ -69,6 +69,7 @@
     }, opts = {};
     $.fn.WeChart = $.WeChart = WeChart;
     /**
+     * 帮助类
      * @param a
      * @param b
      * @returns {d.init}
@@ -76,7 +77,6 @@
     var d = function () {
         return new d.prototype.init();
     };
-
     d.prototype = {
         init: function () {
             return this;
@@ -103,13 +103,11 @@
         return _self;
     };
 
-
     /**
      * 微信初始化
      * @type {Function}
      */
     $.fn.InitWeChat = $.InitWeChat = function (config, success, error) {
-        debugger;
         if (arguments && arguments.length == 2) {
             if (d.type(arguments[0]) === "[object Function]") {
                 success = arguments[0];
@@ -131,6 +129,11 @@
                     data: {'url': opts.scanAuthUrl, 'typenum': opts.typenum, 'facid': opts.facid},
                     success: function (result) {
                         d.lookDebug('Ajax success:' + JSON.stringify(result));
+                        opts.appId = result.APPID;
+                        opts.timestamp = result.TIMESTAMP;
+                        opts.nonceStr = result.NONCESTR;
+                        opts.signature = result.SIGNATURE;
+                        opts.access_token = result.ACCESS_TOKEN;
                         success && success.call(opts, result);
                     },
                     error: function (error) {
@@ -140,7 +143,7 @@
                     }
                 });
             } else {
-                d.error('请先初始化获取微信信息api');
+                d.error('请先初始化微信api');
             }
             ;
 
@@ -721,10 +724,6 @@
      */
     $.fn.CreateCard = $.CreateCard = function (CreateCard, success) {
         var _self = this;
-        //{
-        //    'Access_Token': '',
-        //    'Data': {'DataInfo':''}
-        //}
         try {
             $.ajax({
                 type: CreateCard.type || 'POST',
@@ -792,10 +791,6 @@
      */
     $.fn.CreateCardQR = $.CreateCardQR = function (si, success) {
         var _self = this;
-        //{
-        //    'Access_Token': '',
-        //    'Data': {'DataInfo': ''}
-        //}
         try {
             $.ajax({
                 type: si.type || 'POST',

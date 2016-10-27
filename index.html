@@ -102,19 +102,17 @@
         分享到QQ: true,
         分享到Weibo: true,
         分享到QQ空间: true
-    }, function (result) {
-        this.appId = result.APPID;
-        this.timestamp = result.TIMESTAMP;
-        this.nonceStr = result.NONCESTR;
-        this.signature = result.SIGNATURE;
-        this.access_token = result.ACCESS_TOKEN;
-    }, function (error) {
-        console.log(error);
     });
 
 
-    wechatManage.Forword(function (res) {
+    wechatManage.Forword({
+        forword_title: 'KAKAK',
+        forword_link: 'http://www.baidu.com'
+    }, function (res) {
         $("#result").html("分享成功：" + JSON.stringify(res));
+        alert('分享成功')
+    }, function (res) {
+        alert('取消分享')
     });
 
     $("#btnScan").click(function () {
@@ -144,26 +142,38 @@
     });
 
 
-    wechatManage.ForwordToFriend(function (res) {
+    wechatManage.ForwordToFriend({
+        forword_title: 'KAKAK',
+        forword_link: 'http://www.baidu.com'
+    }, function (res) {
         $("#result").html("分享给朋友：" + JSON.stringify(res));
     }, function (res) {
         $("#result").html("取消分享给朋友：" + JSON.stringify(res));
     });
 
 
-    wechatManage.ShareQQ(function (res) {
+    wechatManage.ShareQQ({
+        forword_title: 'KAKAK',
+        forword_link: 'http://www.baidu.com'
+    }, function (res) {
         $("#result").html("分享QQ：" + JSON.stringify(res));
     }, function (res) {
         $("#result").html("取消分享QQ：" + JSON.stringify(res));
     });
 
-    wechatManage.ShareWeibo(function (res) {
+    wechatManage.ShareWeibo({
+        forword_title: 'KAKAK',
+        forword_link: 'http://www.baidu.com'
+    }, function (res) {
         $("#result").html("分享到微博：" + JSON.stringify(res));
     }, function (res) {
         $("#result").html("取消分享到微博：" + JSON.stringify(res));
     });
 
-    wechatManage.ShareQZone(function (res) {
+    wechatManage.ShareQZone({
+        forword_title: 'KAKAK',
+        forword_link: 'http://www.baidu.com'
+    }, function (res) {
         $("#result").html("分享到QQ空间：" + JSON.stringify(res));
     }, function (res) {
         $("#result").html("取消分享到QQ空间：" + JSON.stringify(res));
@@ -227,7 +237,10 @@
                 }
             }
         };
-        wechatManage.CreateCard(data, function (result, errorcode, cardid) {
+        wechatManage.CreateCard({
+            api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card',
+            data: data
+        }, function (result, errorcode, cardid) {
             if (errorcode === 0) {
                 c = cardid;
                 localStorage.setItem("cardid", cardid);
@@ -235,8 +248,10 @@
             } else {
                 alert(result.errmsg);
             }
-            wechatManage.GetWxCardSignature(cardid || localStorage.getItem("cardid"), function (result, Signature_api_ticket) {
-                s = Signature_api_ticket;
+            wechatManage.GetWxCardSignature({
+                api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
+                cardid: localStorage.getItem("cardid")
+            }, function (result, Signature_api_ticket) {
                 localStorage.setItem("Signature_api_ticket", Signature_api_ticket);
                 console.log(s);
             });
@@ -244,7 +259,12 @@
     });
 
     $("#btnAddCard").click(function () {
-        wechatManage.AddCard(c || localStorage.getItem("cardid"), s || localStorage.getItem("Signature_api_ticket"), function (res, cardlist) {
+        wechatManage.AddCard({
+            cardid: localStorage.getItem("cardid"),
+            nonceStr: '',
+            timestamp: '',
+            signature: ''
+        }, function (res, cardlist) {
             alert(JSON.parse(cardlist))
         });
     });
@@ -256,7 +276,7 @@
             "expire_seconds": 1800,
             "action_info": {
                 "card": {
-                    "card_id": c || localStorage.getItem("cardid"),
+                    "card_id": localStorage.getItem("cardid"),
                     "code": "",
                     "openid": "",
                     "is_unique_code": false,
@@ -264,7 +284,13 @@
                 }
             }
         };
-        wechatManage.CreateCardQR(data, function (result, errorcode, qrcode_url) {
+        wechatManage.CreateCardQR({
+            api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR',
+            data: {
+                'Access_Token': '',
+                'Data': {'DataInfo': JSON.stringify(data)}
+            }
+        }, function (result, errorcode, qrcode_url) {
             var img = '<img src="' + qrcode_url + '" >';
             alert(errorcode);
             $("#result").html(img);
@@ -289,7 +315,13 @@
 
 
     $("#btnChooseWXPay").click(function () {
-        wechatManage.ChooseWXPay(function (res) {
+        wechatManage.ChooseWXPay({
+            timestamp: '', // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+            nonceStr: '', // 支付签名随机串，不长于 32 位
+            package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+            signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+            paySign: '' // 支付签名
+        }, function (res) {
             $("#result").html("微信支付：" + JSON.stringify(res));
         });
     });
