@@ -28,24 +28,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17267" max-vertical-offset="24075">
-              <caret line="718" column="36" selection-start-line="718" selection-start-column="36" selection-end-line="718" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.18588236" vertical-offset="21617" max-vertical-offset="27250">
+              <caret line="871" column="11" selection-start-line="871" selection-start-column="11" selection-end-line="871" selection-end-column="11" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Jquery.WeChat.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="15504" max-vertical-offset="16700">
-              <caret line="782" column="73" selection-start-line="782" selection-start-column="73" selection-end-line="782" selection-end-column="73" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -54,18 +44,20 @@
         <entry file="file://$PROJECT_DIR$/static/script/jweixin-1.0.0.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="3002" max-vertical-offset="4425">
-              <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+              <caret line="139" column="32" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38162544" vertical-offset="776" max-vertical-offset="7150">
-              <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
-              <folding />
+            <state vertical-scroll-proportion="-19.82353" vertical-offset="5276" max-vertical-offset="6325">
+              <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+              <folding>
+                <element signature="e#5316#7998#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,8 +76,8 @@
         <option value="$PROJECT_DIR$/static/script/jquery.1.5.2.js" />
         <option value="$PROJECT_DIR$/static/script/jweixin-1.0.0.js" />
         <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.js" />
-        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" />
       </list>
     </option>
   </component>
@@ -251,7 +243,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477532773791</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <created>1477533566502</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1477533566502</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -265,6 +263,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -272,9 +272,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -333,7 +331,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1334" max-vertical-offset="6925">
           <caret line="75" column="15" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="15" />
-          <folding />
+          <folding>
+            <element signature="e#5316#7998#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -351,7 +351,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6925">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#5316#7998#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -369,7 +371,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1792" max-vertical-offset="4575">
           <caret line="149" column="30" selection-start-line="149" selection-start-column="12" selection-end-line="149" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#5316#7998#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -429,37 +433,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/jweixin-1.0.0.js">
+    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3002" max-vertical-offset="4425">
-          <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+        <state vertical-scroll-proportion="1.3404018" vertical-offset="3149" max-vertical-offset="16700">
+          <caret line="298" column="21" selection-start-line="298" selection-start-column="21" selection-end-line="298" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15804" max-vertical-offset="16700">
-          <caret line="782" column="73" selection-start-line="782" selection-start-column="73" selection-end-line="782" selection-end-column="73" />
+        <state vertical-scroll-proportion="-19.82353" vertical-offset="5276" max-vertical-offset="6325">
+          <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+          <folding>
+            <element signature="e#5316#7998#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/script/jweixin-1.0.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3002" max-vertical-offset="4425">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17267" max-vertical-offset="24075">
-          <caret line="718" column="36" selection-start-line="718" selection-start-column="36" selection-end-line="718" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.18588236" vertical-offset="21617" max-vertical-offset="27250">
+          <caret line="871" column="11" selection-start-line="871" selection-start-column="11" selection-end-line="871" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38162544" vertical-offset="776" max-vertical-offset="7150">
-          <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>

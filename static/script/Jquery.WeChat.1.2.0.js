@@ -124,6 +124,7 @@
  * $("#btn5").Click(function(){wecharManage.Scan(success) $.CloseWindow()});
  *
  */
+
 ;
 (function ($, WX) {
     var WXAPIConfig = {
@@ -141,6 +142,28 @@
         baseapi_showOptionMenu: true,
         baseapi_closeWindow: true,
         baseapi_scanQRCode: true,
+        baseapi_startRecord: true,
+        baseapi_stopRecord: true,
+        baseapi_onVoiceRecordEnd: true,
+        baseapi_playVoice: true,
+        baseapi_pauseVoice: true,
+        baseapi_stopVoice: true,
+        baseapi_onVoicePlayEnd: true,
+        baseapi_uploadVoice: true,
+        baseapi_downloadVoice: true,
+        baseapi_chooseImage: true,
+        baseapi_previewImage: true,
+        baseapi_uploadImage: true,
+        baseapi_downloadImage: true,
+        baseapi_translateVoice: true,
+        baseapi_getNetworkType: true,
+        baseapi_openLocation: true,
+        baseapi_getLocation: true,
+        baseapi_chooseWXPay: true,
+        baseapi_openProductSpecificView: true,
+        baseapi_addCard: true,
+        baseapi_chooseCard: true,
+        baseapi_openCard: true,
         appId: null,
         timestamp: null,
         nonceStr: null,
@@ -317,6 +340,95 @@
                     if (opts.baseapi_closeWindow) {
                         jsApi.push('closeWindow');
                     }
+
+
+                    if (opts.baseapi_startRecord) {
+                        jsApi.push('startRecord');
+                    }
+
+                    if (opts.baseapi_stopRecord) {
+                        jsApi.push('stopRecord');
+                    }
+
+                    if (opts.baseapi_onVoiceRecordEnd) {
+                        jsApi.push('onVoiceRecordEnd');
+                    }
+                    if (opts.baseapi_playVoice) {
+                        jsApi.push('playVoice');
+                    }
+
+                    if (opts.baseapi_pauseVoice) {
+                        jsApi.push('pauseVoice');
+                    }
+
+                    if (opts.baseapi_stopVoice) {
+                        jsApi.push('stopVoice');
+                    }
+
+                    if (opts.baseapi_onVoicePlayEnd) {
+                        jsApi.push('onVoicePlayEnd');
+                    }
+
+                    if (opts.baseapi_uploadVoice) {
+                        jsApi.push('uploadVoice');
+                    }
+
+                    if (opts.baseapi_downloadVoice) {
+                        jsApi.push('downloadVoice');
+                    }
+
+                    if (opts.baseapi_chooseImage) {
+                        jsApi.push('chooseImage');
+                    }
+
+                    if (opts.baseapi_previewImage) {
+                        jsApi.push('previewImage');
+                    }
+
+                    if (opts.baseapi_uploadImage) {
+                        jsApi.push('uploadImage');
+                    }
+
+                    if (opts.baseapi_downloadImage) {
+                        jsApi.push('downloadImage');
+                    }
+
+                    if (opts.baseapi_translateVoice) {
+                        jsApi.push('translateVoice');
+                    }
+
+                    if (opts.baseapi_getNetworkType) {
+                        jsApi.push('getNetworkType');
+                    }
+
+                    if (opts.baseapi_openLocation) {
+                        jsApi.push('openLocation');
+                    }
+
+                    if (opts.baseapi_getLocation) {
+                        jsApi.push('getLocation');
+                    }
+
+                    if (opts.baseapi_chooseWXPay) {
+                        jsApi.push('chooseWXPay');
+                    }
+
+                    if (opts.baseapi_openProductSpecificView) {
+                        jsApi.push('openProductSpecificView');
+                    }
+
+                    if (opts.baseapi_addCard) {
+                        jsApi.push('addCard');
+                    }
+
+                    if (opts.baseapi_chooseCard) {
+                        jsApi.push('chooseCard');
+                    }
+
+                    if (opts.baseapi_openCard) {
+                        jsApi.push('openCard');
+                    }
+
                     if (opts.baseapi_scanQRCode) {
                         jsApi.push('scanQRCode');
                     }
@@ -627,12 +739,12 @@
      * @returns {$.fn.UploadImage}
      * @constructor
      */
-    $.fn.UploadImage = $.UploadImage = function (success) {
+    $.fn.UploadImage = $.UploadImage = function (imgLocalIds, success) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.uploadImage({
-                    localId: opts.imgLocalIds, // 需要上传的图片的本地ID，由chooseImage接口获得
+                    localId: imgLocalIds, // 需要上传的图片的本地ID，由chooseImage接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
                         var serverId = res.serverId; // 返回图片的服务器端ID
@@ -679,7 +791,7 @@
         var _self = this;
         try {
             WX.getLocation({
-                type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
                 success: function (res) {
                     var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
                     var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
@@ -706,28 +818,17 @@
     $.fn.OpenLocation = $.OpenLocation = function (res) {
         var _self = this;
         try {
-            //WX.openLocation({
-            //    latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
-            //    longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
-            //    name: res.name || '0000', // 位置名
-            //    address: res.address || '000', // 地址详情说明
-            //    scale: res.scale || 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
-            //    infoUrl: res.infoUrl || '000' // 在查看位置界面底部显示的超链接,可点击跳转
-            //});
-
             WX.openLocation({
-                latitude: 23.099994,
-                longitude: 113.324520,
-                name: 'TIT 创意园',
-                address: '广州市海珠区新港中路 397 号',
-                scale: 14,
-                infoUrl: 'http://weixin.qq.com'
+                latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
+                longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
+                name: res.name || '当前位置', // 位置名
+                address: res.address || '当前位置', // 地址详情说明
+                scale: res.scale || 16, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                infoUrl: res.infoUrl || '000' // 在查看位置界面底部显示的超链接,可点击跳转
             });
-
         } catch (e) {
             d.error('OpenLocation error' + e.message);
             d.lookDebug('OpenLocation error:' + e.message);
-            alert(1)
         }
         return _self;
     };
@@ -766,6 +867,32 @@
         }
         return _self;
     };
+
+    /**
+     * 支付接口
+     * @type {Function}
+     */
+    $.fn.ChooseWXPay = $.ChooseWXPay = function (success) {
+        var _self = this;
+        try {
+            WX.chooseWXPay({
+                timestamp: opts.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                nonceStr: opts.nonceStr, // 支付签名随机串，不长于 32 位
+                package: '000', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                paySign: '000000000', // 支付签名
+                success: function (res) {
+                    // 支付成功后的回调函数
+                    success && success.call(_self, res);
+                }
+            });
+        } catch (e) {
+            d.error('ShowOptionMenu error' + e.message);
+            d.lookDebug('ShowOptionMenu error:' + e.message);
+        }
+        return _self;
+    }
+
 
     /**
      * 创建卡券

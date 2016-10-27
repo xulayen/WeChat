@@ -68,6 +68,12 @@
 <button id="btnCreateCardQR">
     创建卡券二维码
 </button>
+
+<button id="btnChooseImg">
+    选择图片
+</button>
+
+<button id="btnUploadImage">上传图片</button>
 <p id="result">
 
 </p>
@@ -126,13 +132,13 @@
     $("#btnLocation").click(function () {
         wechatManage.GetLocation(function (res) {
             $("#result").html("获取位置：" + JSON.stringify(res));
-
+            localStorage.setItem("location", JSON.stringify(res))
         });
     });
 
 
     $("#btnOpenLocation").click(function () {
-        wechatManage.OpenLocation(res);
+        wechatManage.OpenLocation(JSON.parse(localStorage.getItem("location")));
     });
 
 
@@ -234,7 +240,7 @@
             } else {
                 alert(result.errmsg);
             }
-            $.GetWxCardSignature(cardid || localStorage.getItem("cardid"), function (result, Signature_api_ticket) {
+            wechatManage.GetWxCardSignature(cardid || localStorage.getItem("cardid"), function (result, Signature_api_ticket) {
                 s = Signature_api_ticket;
                 localStorage.setItem("Signature_api_ticket", Signature_api_ticket);
                 console.log(s);
@@ -270,6 +276,25 @@
 
         });
     });
+
+
+    $("#btnChooseImg").click(function () {
+        wechatManage.ChooseImg(function (res, localIds) {
+            localStorage.setItem("localIds", localIds);
+            $("#result").html("选择图片：" + JSON.stringify(res));
+        });
+    });
+
+
+    $("#btnUploadImage").click(function () {
+        wechatManage.UploadImage(localStorage.getItem("localIds"), function (res, serverId) {
+            $("#result").html("上传图片：" + JSON.stringify(res));
+        });
+    });
+
+
+
+
 
 
     $("button").click(function () {
