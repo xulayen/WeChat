@@ -40,6 +40,10 @@
 <button id="btnLocation">
     获取地理位置
 </button>
+
+<button id="btnOpenLocation">
+    打开地理位置
+</button>
 <button id="btnNetwork">
     获取网络
 </button>
@@ -122,8 +126,13 @@
     $("#btnLocation").click(function () {
         wechatManage.GetLocation(function (res) {
             $("#result").html("获取位置：" + JSON.stringify(res));
-            $.OpenLocation(res);
+
         });
+    });
+
+
+    $("#btnOpenLocation").click(function () {
+        wechatManage.OpenLocation(res);
     });
 
 
@@ -220,14 +229,14 @@
         wechatManage.CreateCard(data, function (result, errorcode, cardid) {
             if (errorcode === 0) {
                 c = cardid;
-                localStorage.setItem("cardid",cardid);
+                localStorage.setItem("cardid", cardid);
                 alert('ok')
             } else {
                 alert(result.errmsg);
             }
             $.GetWxCardSignature(cardid || localStorage.getItem("cardid"), function (result, Signature_api_ticket) {
                 s = Signature_api_ticket;
-                localStorage.setItem("Signature_api_ticket",Signature_api_ticket);
+                localStorage.setItem("Signature_api_ticket", Signature_api_ticket);
                 console.log(s);
             });
         });
