@@ -108,6 +108,7 @@
      * @type {Function}
      */
     $.fn.InitWeChat = $.InitWeChat = function (config, success, error) {
+        var _self = this;
         opts = $.extend({}, opts, config);
         try {
             if (opts.api) {
@@ -294,6 +295,7 @@
                 }
                 WX.showMenuItems({menuList: menuList});
             });
+            return _self;
         } catch (e) {
             d.error('config.wxInit error' + e.message);
             d.lookDebug('wxInit error:' + e.message);

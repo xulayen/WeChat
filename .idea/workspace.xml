@@ -42,8 +42,8 @@
       <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4020385" vertical-offset="2420" max-vertical-offset="22025">
-              <caret line="111" column="13" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.65685165" vertical-offset="6920" max-vertical-offset="22075">
+              <caret line="300" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="877" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -76,8 +76,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.882353" vertical-offset="6426" max-vertical-offset="7425">
-              <caret line="322" column="31" selection-start-line="322" selection-start-column="31" selection-end-line="322" selection-end-column="31" />
+            <state vertical-scroll-proportion="-14.676471" vertical-offset="1926" max-vertical-offset="7425">
+              <caret line="97" column="27" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="27" />
               <folding>
                 <element signature="e#5154#7197#0" expanded="false" />
               </folding>
@@ -272,7 +272,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477551654555</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <created>1477551891326</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1477551891326</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -476,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.882353" vertical-offset="6426" max-vertical-offset="7425">
-          <caret line="322" column="31" selection-start-line="322" selection-start-column="31" selection-end-line="322" selection-end-column="31" />
+        <state vertical-scroll-proportion="-14.676471" vertical-offset="1926" max-vertical-offset="7425">
+          <caret line="97" column="27" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="27" />
           <folding>
             <element signature="e#5154#7197#0" expanded="false" />
           </folding>
@@ -486,8 +492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4020385" vertical-offset="2420" max-vertical-offset="22025">
-          <caret line="111" column="13" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.65685165" vertical-offset="6920" max-vertical-offset="22075">
+          <caret line="300" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="877" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
