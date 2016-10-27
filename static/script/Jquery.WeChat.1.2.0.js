@@ -108,16 +108,7 @@
      * @type {Function}
      */
     $.fn.InitWeChat = $.InitWeChat = function (config, success, error) {
-        if (arguments && arguments.length == 2) {
-            if (d.type(arguments[0]) === "[object Function]") {
-                success = arguments[0];
-            }
-            if (d.type(arguments[1]) === "[object Function]") {
-                error = arguments[1];
-            }
-        } else {
-            opts = $.extend({}, opts, config);
-        }
+        opts = $.extend({}, opts, config);
         try {
             if (opts.api) {
                 $.ajax({

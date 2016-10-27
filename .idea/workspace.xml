@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="update">
+    <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WeChat.iws" />
@@ -44,8 +42,8 @@
       <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50056624" vertical-offset="17333" max-vertical-offset="22250">
-              <caret line="711" column="15" selection-start-line="711" selection-start-column="15" selection-end-line="711" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.4020385" vertical-offset="2420" max-vertical-offset="22025">
+              <caret line="111" column="13" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -101,8 +99,8 @@
         <option value="$PROJECT_DIR$/static/script/jquery.1.5.2.js" />
         <option value="$PROJECT_DIR$/static/script/jweixin-1.0.0.js" />
         <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.js" />
-        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js" />
       </list>
     </option>
   </component>
@@ -268,7 +266,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477547056002</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update">
+      <created>1477551654555</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1477551654555</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -482,8 +486,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50056624" vertical-offset="17333" max-vertical-offset="22250">
-          <caret line="711" column="15" selection-start-line="711" selection-start-column="15" selection-end-line="711" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.4020385" vertical-offset="2420" max-vertical-offset="22025">
+          <caret line="111" column="13" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
