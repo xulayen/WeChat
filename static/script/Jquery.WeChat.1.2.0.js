@@ -935,11 +935,13 @@
             }
             callback = opts.callback_WeChatBrower;
             if (ua.match(/micromessenger/i) != 'micromessenger') {
-                callback && callback.call(_self, ua.match(/micromessenger/i) === 'micromessenger');
+                callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
             }
         } else {
-            callback && callback.call(_self, ua.match(/micromessenger/i) === 'micromessenger');
+            callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         }
         return _self;
     };
+
+
 })(jQuery, wx);
