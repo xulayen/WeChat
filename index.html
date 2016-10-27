@@ -74,6 +74,9 @@
 </button>
 
 <button id="btnUploadImage">上传图片</button>
+
+
+<button id="btnChooseWXPay">支付</button>
 <p id="result">
 
 </p>
@@ -89,34 +92,26 @@
         type: 'GET',
         facid: '00000',
         typenum: '2',
-        async: false,
-        callback_success: function (result) {
-            this.appId = result.APPID;
-            this.timestamp = result.TIMESTAMP;
-            this.nonceStr = result.NONCESTR;
-            this.signature = result.SIGNATURE;
-            this.access_token = result.ACCESS_TOKEN;
-        },
+        async: false
+    });
+
+    wechatManage.InitWeChat({
         分享到朋友圈: true,
         发送给朋友: true,
         在Safari中打开: true,
         分享到QQ: true,
         分享到Weibo: true,
-        分享到QQ空间: true,
-        forword_title: '测试分享到朋友圈',
-        forword_link: 'http://www.baidu.com/',
-        WeChatCard: {
-            CreateCard: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card'
-            },
-            CreateCardQR: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR'
-            },
-            GetWxCardSignature: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign'
-            }
-        }
+        分享到QQ空间: true
+    }, function (result) {
+        this.appId = result.APPID;
+        this.timestamp = result.TIMESTAMP;
+        this.nonceStr = result.NONCESTR;
+        this.signature = result.SIGNATURE;
+        this.access_token = result.ACCESS_TOKEN;
+    }, function (error) {
+        console.log(error);
     });
+
 
     wechatManage.Forword(function (res) {
         $("#result").html("分享成功：" + JSON.stringify(res));
@@ -293,10 +288,11 @@
     });
 
 
-
-
-
-
+    $("#btnChooseWXPay").click(function () {
+        wechatManage.ChooseWXPay(function (res) {
+            $("#result").html("微信支付：" + JSON.stringify(res));
+        });
+    });
     $("button").click(function () {
         navigator.vibrate(2);
     });

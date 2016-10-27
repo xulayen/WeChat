@@ -1,130 +1,6 @@
 ﻿/**
  * Created by xulayen on 2016/9/14.
- * <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
- * <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
- * *******************初始化入口***************************************************************************************************************************
- * WeChart([object])            微信参数初始化，可直接$.WeChart进行初始化 [静态调用、实例调用]
- * *******************微信初始化参数***********************************************************************************************************************
- * debug                        是否启用调试模式 [false]
- * scanAuthUrl                  调取扫一扫的授权页面，必须是当前页面的绝对地址 [location.href]
- * facid                        当前厂家 ['00446']
- * typenum                      1、服务号 2、订阅号 ['1']
- * api                          获取微信appid、timestamp、nonceStr、signature的api地址 ['']
- * baseapi_                     微信基础api，默认全部启用 [true]
- * hideOptionMenu               隐藏所有的微信操作按钮 [true]
- * appId                        当前微信号的appId {local/server 获取} ['']
- * timestamp                    当前微信号的timestamp {local/server 获取} ['']
- * nonceStr                     当前微信号的nonceStr {local/server 获取} ['']
- * signature                    当前微信号的jsapi_ticket signature {local/server 获取} ['']
- * access_token                 当前微信号的ACCESS_TOKEN {local/server 获取}['']
- * 分享到朋友圈                 分享到朋友圈 [false]
- * 发送给朋友                   发送给朋友 [false]
- * 收藏                         收藏 [false]
- * 在Safari中打开               在Safari中打开 [false]
- * 邮件                         邮件 [false]
- * 分享到QQ                     分享到QQ [false]
- * 分享到QQ空间                 分享到QQ空间 [false]
- * 分享到Weibo                  分享到Weibo  [false]
- * 复制链接                     复制链接 [false]
- * 调整字体                     调整字体 [false]
- * 阅读模式                     阅读模式 [false]
- * 刷新                         刷新 [false]
- * forword_title                分享标题 ['']
- * forword_desc                 分享描述 ['']
- * forword_link                 分享链接 ['']
- * forword_imgUrl               分享图标 ['']
- * forword_type                 分享类型{music、video、link} [link]
- * forword_dataUrl              如果type={music或video}，则要提供数据链接 ['']
- * async                        是否异步 {true/false} [true]
- * data                         数据入参 {object} [object]
- * type                         提交方式 {POST/GET} [POST]
- * ContentType                  内容编码类型 [application/x-www-form-urlencoded]
- * cache                        设置为false将不会从浏览器缓存中加载请求信息 [true]
- * ********************AJAX异步提交debugger状态下回调*******************************************************************************************************************************
- * callback_success             成功回调 Function(res)
- * callback_error               失败回调 Function(res)
- * callback_beforeSend          请求完成后调用的回调函数（请求成功或失败时均调用）
- * callback_complete            发送请求前可以修改XMLHttpRequest对象的函数，例如添加自定义HTTP头。在beforeSend中如果返回false可以取消本次ajax请求
- * ********************功能模块函数（除了Scan函数是实例函数，其他都是[静态/实例函数]）*******************************************************************************************************************************
- * Scan                         扫描 Function(res) @param res扫描到的内容，[实例调用]
- * Forword                      转发 Function(success,cancel) @success转发成功回调 @cancel取消转发回调 [静态调用、实例调用]
- * ForwordToFriend              获取“分享给朋友”按钮点击状态及自定义分享内容接口
- * ShareQQ                      获取“分享到QQ”按钮点击状态及自定义分享内容接口
- * ShareWeibo                   获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口
- * ShareQZone                   获取“分享到QQ空间”按钮点击状态及自定义分享内容接口
- * ChooseImg                    选择图片
- * PreviewImage                 预览图片
- * UploadImage                  上传图片
- * GetNetWorkType               获取网络状态
- * GetLocation                  获取地理位置
- * OpenLocation                 打开地理位置
- * HideOptionMenu               隐藏右上角菜单
- * ShowOptionMenu               显示右上角菜单
- * CloseWindow                  关闭页面
- * InitWxError                  初始化失败 Function(res) 进行调用初始化微信参数是否异常 [静态调用、实例调用]
- * callback_WeChatBrower        是否是微信浏览器[function () {
-*                              location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
-*                                }] [静态调用、实例调用]
- * 用法 API:
- * 初始化微信基础信息
- * var wecharManage=$.WeChart({
-*   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
-*   callback_success: function (result) {
-*       var data = result;
-*       this.appId = data.APPID;
-*       this.timestamp = data.TIMESTAMP;
-*       this.nonceStr = data.NONCESTR;
-*       this.signature = data.SIGNATURE;
-*   },
-*   scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
-*   typenum: 2,
-*   facid: 10,
-*   分享到朋友圈: true,
-*   forword_title: 'cccccccccccccccc',
-*   forword_link: 'http://www.baidu.com/'
-*  });
- *
- * 当前页面可以转发
- * $.Forword(success,cancel) wecharManage.Forword(success,cancel)
- *
- * 分享给朋友
- * $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
- *
- * 分享到QQ
- * $.ShareQQ(success,cancel) wecharManage.ShareQQ(success,cancel)
- *
- * 分享到微博
- * $.ShareWeibo(success,cancel) wecharManage.ShareWeibo(success,cancel)
- *
- * 分享到QQ空间
- * $.ShareQZone(success,cancel) wecharManage.ShareQZone(success,cancel)
- *
- * 分享给朋友
- * $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
- *
- * 微信初始化失败回调
- * $.InitWxError(fn) wecharManage.InitWxError(fn)
- *
- * 获取地理位置
- * $.GetLocation(success) wecharManage.GetLocation(success)
- *
- * 获取网络状态
- * $.GetNetWorkType(success) wecharManage.GetNetWorkType(success)
- *
- * 隐藏菜单
- * $.HideOptionMenu() wecharManage.HideOptionMenu()
- *
- * 显示菜单
- * $.ShowOptionMenu() wecharManage.ShowOptionMenu()
- *
- * 关闭页面
- * $.CloseWindow() wecharManage.CloseWindow()
- *
- * 按钮5可以调取摄像头
- * $("#btn5").Click(function(){wecharManage.Scan(success) $.CloseWindow()});
- *
  */
-
 ;
 (function ($, WX) {
     var WXAPIConfig = {
@@ -186,40 +62,12 @@
         typenum: '1',
         scanAuthUrl: location.href,
         hideOptionMenu: true,
-        forword_title: '', // 分享标题
-        forword_desc: '', // 分享描述
-        forword_link: '', // 分享链接
-        forword_imgUrl: '', // 分享图标
-        forword_type: '', // 分享类型,music、video或link，不填默认为link
-        forword_dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-        callback_success: null,
-        callback_error: null,
         async: true, //是否异步
-        data: null,
         type: 'POST',
         ContentType: 'application/x-www-form-urlencoded',
-        cache: true,
-        callback_beforeSend: null,
-        callback_complete: null,
-        callback_WeChatBrower: function () {
-            location.href = window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + opts.appId || '00000000';
-        },
-        WeChatCard: {
-            CreateCard: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card',
-                data: {}
-            },
-            CreateCardQR: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR',
-                data: {}
-            },
-            GetWxCardSignature: {
-                api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign'
-            }
-        }
+        cache: true
     }, opts = {};
     $.fn.WeChart = $.WeChart = WeChart;
-
     /**
      * @param a
      * @param b
@@ -249,248 +97,213 @@
     d.prototype.init.prototype = d.prototype;
     d = d();
 
-
-    var deepCopy = function (source) {
-        var result = {};
-        for (var key in source) {
-            result[key] = typeof source[key] === 'object' ? arguments.callee.caller(source[key]) : source[key];
-        }
-        return result;
-    };
-
     function WeChart(options) {
         var _self = this;
         opts = $.extend({}, WXAPIConfig, options);
-        var configs = {
-            main: function () {
-                try {
-                    console.log(opts);
-                    configs.wxInit();
-                } catch (e) {
-                    d.error('config.main.wxInit error' + e.message);
-                }
-                return _self;
-            },
-            getWXParamter: function () {
-                if (opts.api) {
-                    $.ajax({
-                        type: opts.type,
-                        url: opts.api,
-                        async: opts.async,
-                        ContentType: opts.ContentType,
-                        cache: opts.cache,
-                        data: opts.data || {"url": opts.scanAuthUrl, "typenum": opts.typenum, "facid": opts.facid},
-                        success: function (result) {
-                            d.lookDebug('Ajax success:' + JSON.stringify(result));
-                            opts.callback_success && opts.callback_success.call(opts, result);
-                        },
-                        beforeSend: function (result) {
-                            d.lookDebug('Ajax beforeSend:' + JSON.stringify(result));
-                            opts.callback_beforeSend && opts.callback_beforeSend.call(opts, result);
-                        },
-                        complete: function (result) {
-                            d.lookDebug('Ajax complete:' + JSON.stringify(result));
-                            opts.callback_complete && opts.callback_complete.call(opts, result);
-                        },
-                        error: function (error) {
-                            d.error('NetWork is busy!');
-                            d.lookDebug('Ajax error:' + JSON.stringify(error));
-                            opts.callback_error && opts.callback_error.call(opts, error);
-                        }
-                    });
-                }
-            },
-            wxInit: function () {
-                try {
-                    configs.getWXParamter();
-                    var jsApi = [], menuList = [];
-                    if (opts.baseapi_checkJsApi) {
-                        jsApi.push('checkJsApi');
-                    }
-                    if (opts.baseapi_onMenuShareTimeline) {
-                        jsApi.push('onMenuShareTimeline');
-                    }
-                    if (opts.baseapi_onMenuShareAppMessage) {
-                        jsApi.push('onMenuShareAppMessage');
-                    }
-                    if (opts.baseapi_onMenuShareQQ) {
-                        jsApi.push('onMenuShareQQ');
-                    }
-                    if (opts.baseapi_onMenuShareWeibo) {
-                        jsApi.push('onMenuShareWeibo');
-                    }
-                    if (opts.baseapi_hideMenuItems) {
-                        jsApi.push('hideMenuItems');
-                    }
-                    if (opts.baseapi_showMenuItems) {
-                        jsApi.push('showMenuItems');
-                    }
-                    if (opts.baseapi_hideAllNonBaseMenuItem) {
-                        jsApi.push('hideAllNonBaseMenuItem');
-                    }
-                    if (opts.baseapi_showAllNonBaseMenuItem) {
-                        jsApi.push('showAllNonBaseMenuItem');
-                    }
-                    if (opts.baseapi_hideOptionMenu) {
-                        jsApi.push('hideOptionMenu');
-                    }
-                    if (opts.baseapi_showOptionMenu) {
-                        jsApi.push('showOptionMenu');
-                    }
-                    if (opts.baseapi_closeWindow) {
-                        jsApi.push('closeWindow');
-                    }
+        return _self;
+    };
 
 
-                    if (opts.baseapi_startRecord) {
-                        jsApi.push('startRecord');
-                    }
-
-                    if (opts.baseapi_stopRecord) {
-                        jsApi.push('stopRecord');
-                    }
-
-                    if (opts.baseapi_onVoiceRecordEnd) {
-                        jsApi.push('onVoiceRecordEnd');
-                    }
-                    if (opts.baseapi_playVoice) {
-                        jsApi.push('playVoice');
-                    }
-
-                    if (opts.baseapi_pauseVoice) {
-                        jsApi.push('pauseVoice');
-                    }
-
-                    if (opts.baseapi_stopVoice) {
-                        jsApi.push('stopVoice');
-                    }
-
-                    if (opts.baseapi_onVoicePlayEnd) {
-                        jsApi.push('onVoicePlayEnd');
-                    }
-
-                    if (opts.baseapi_uploadVoice) {
-                        jsApi.push('uploadVoice');
-                    }
-
-                    if (opts.baseapi_downloadVoice) {
-                        jsApi.push('downloadVoice');
-                    }
-
-                    if (opts.baseapi_chooseImage) {
-                        jsApi.push('chooseImage');
-                    }
-
-                    if (opts.baseapi_previewImage) {
-                        jsApi.push('previewImage');
-                    }
-
-                    if (opts.baseapi_uploadImage) {
-                        jsApi.push('uploadImage');
-                    }
-
-                    if (opts.baseapi_downloadImage) {
-                        jsApi.push('downloadImage');
-                    }
-
-                    if (opts.baseapi_translateVoice) {
-                        jsApi.push('translateVoice');
-                    }
-
-                    if (opts.baseapi_getNetworkType) {
-                        jsApi.push('getNetworkType');
-                    }
-
-                    if (opts.baseapi_openLocation) {
-                        jsApi.push('openLocation');
-                    }
-
-                    if (opts.baseapi_getLocation) {
-                        jsApi.push('getLocation');
-                    }
-
-                    if (opts.baseapi_chooseWXPay) {
-                        jsApi.push('chooseWXPay');
-                    }
-
-                    if (opts.baseapi_openProductSpecificView) {
-                        jsApi.push('openProductSpecificView');
-                    }
-
-                    if (opts.baseapi_addCard) {
-                        jsApi.push('addCard');
-                    }
-
-                    if (opts.baseapi_chooseCard) {
-                        jsApi.push('chooseCard');
-                    }
-
-                    if (opts.baseapi_openCard) {
-                        jsApi.push('openCard');
-                    }
-
-                    if (opts.baseapi_scanQRCode) {
-                        jsApi.push('scanQRCode');
-                    }
-                    if (opts.分享到朋友圈) {
-                        menuList.push('menuItem:share:timeline');
-                    }
-                    if (opts.发送给朋友) {
-                        menuList.push('menuItem:share:appMessage');
-                    }
-                    if (opts.收藏) {
-                        menuList.push('menuItem:favorite');
-                    }
-                    if (opts.在Safari中打开) {
-                        menuList.push('menuItem:openWithSafari');
-                    }
-                    if (opts.邮件) {
-                        menuList.push('menuItem:share:email');
-                    }
-                    if (opts.分享到QQ) {
-                        menuList.push('menuItem:share:qq');
-                    }
-                    if (opts.分享到QQ空间) {
-                        menuList.push('menuItem:share:QZone');
-                    }
-                    if (opts.分享到Weibo) {
-                        menuList.push('menuItem:share:weiboApp');
-                    }
-                    if (opts.复制链接) {
-                        menuList.push('menuItem:copyUrl');
-                    }
-                    if (opts.调整字体) {
-                        menuList.push('menuItem:setFont');
-                    }
-                    if (opts.阅读模式) {
-                        menuList.push('menuItem:readMode');
-                    }
-                    if (opts.刷新) {
-                        menuList.push('menuItem:refresh');
-                    }
-
-                    WX.config({
-                        debug: opts.debug,
-                        appId: opts.appId,
-                        timestamp: opts.timestamp,
-                        nonceStr: opts.nonceStr,
-                        signature: opts.signature,
-                        jsApiList: jsApi
-                    });
-                    WX.ready(function () {
-                        if (opts.hideOptionMenu) {
-                            WX.hideOptionMenu();
-                        }
-                        WX.showMenuItems({menuList: menuList});
-                    });
-                } catch (e) {
-                    d.error('config.wxInit error' + e.message);
-                    d.lookDebug('wxInit error:' + e.message);
-
-                }
+    /**
+     * 微信初始化
+     * @type {Function}
+     */
+    $.fn.InitWeChat = $.InitWeChat = function (config, success, error) {
+        debugger;
+        if (arguments && arguments.length == 2) {
+            if (d.type(arguments[0]) === "[object Function]") {
+                success = arguments[0];
             }
-        };
-        return configs.main();
+            if (d.type(arguments[1]) === "[object Function]") {
+                error = arguments[1];
+            }
+        } else {
+            opts = $.extend({}, opts, config);
+        }
+        try {
+            if (opts.api) {
+                $.ajax({
+                    type: opts.type,
+                    url: opts.api,
+                    async: opts.async,
+                    ContentType: opts.ContentType,
+                    cache: opts.cache,
+                    data: {'url': opts.scanAuthUrl, 'typenum': opts.typenum, 'facid': opts.facid},
+                    success: function (result) {
+                        d.lookDebug('Ajax success:' + JSON.stringify(result));
+                        success && success.call(opts, result);
+                    },
+                    error: function (error) {
+                        d.error('NetWork is busy!');
+                        d.lookDebug('Ajax error:' + JSON.stringify(error));
+                        error && error.call(opts, error);
+                    }
+                });
+            } else {
+                d.error('请先初始化获取微信信息api');
+            }
+            ;
+
+            var jsApi = [], menuList = [];
+            if (opts.baseapi_checkJsApi) {
+                jsApi.push('checkJsApi');
+            }
+            if (opts.baseapi_onMenuShareTimeline) {
+                jsApi.push('onMenuShareTimeline');
+            }
+            if (opts.baseapi_onMenuShareAppMessage) {
+                jsApi.push('onMenuShareAppMessage');
+            }
+            if (opts.baseapi_onMenuShareQQ) {
+                jsApi.push('onMenuShareQQ');
+            }
+            if (opts.baseapi_onMenuShareWeibo) {
+                jsApi.push('onMenuShareWeibo');
+            }
+            if (opts.baseapi_hideMenuItems) {
+                jsApi.push('hideMenuItems');
+            }
+            if (opts.baseapi_showMenuItems) {
+                jsApi.push('showMenuItems');
+            }
+            if (opts.baseapi_hideAllNonBaseMenuItem) {
+                jsApi.push('hideAllNonBaseMenuItem');
+            }
+            if (opts.baseapi_showAllNonBaseMenuItem) {
+                jsApi.push('showAllNonBaseMenuItem');
+            }
+            if (opts.baseapi_hideOptionMenu) {
+                jsApi.push('hideOptionMenu');
+            }
+            if (opts.baseapi_showOptionMenu) {
+                jsApi.push('showOptionMenu');
+            }
+            if (opts.baseapi_closeWindow) {
+                jsApi.push('closeWindow');
+            }
+            if (opts.baseapi_startRecord) {
+                jsApi.push('startRecord');
+            }
+            if (opts.baseapi_stopRecord) {
+                jsApi.push('stopRecord');
+            }
+            if (opts.baseapi_onVoiceRecordEnd) {
+                jsApi.push('onVoiceRecordEnd');
+            }
+            if (opts.baseapi_playVoice) {
+                jsApi.push('playVoice');
+            }
+            if (opts.baseapi_pauseVoice) {
+                jsApi.push('pauseVoice');
+            }
+            if (opts.baseapi_stopVoice) {
+                jsApi.push('stopVoice');
+            }
+            if (opts.baseapi_onVoicePlayEnd) {
+                jsApi.push('onVoicePlayEnd');
+            }
+            if (opts.baseapi_uploadVoice) {
+                jsApi.push('uploadVoice');
+            }
+            if (opts.baseapi_downloadVoice) {
+                jsApi.push('downloadVoice');
+            }
+            if (opts.baseapi_chooseImage) {
+                jsApi.push('chooseImage');
+            }
+            if (opts.baseapi_previewImage) {
+                jsApi.push('previewImage');
+            }
+            if (opts.baseapi_uploadImage) {
+                jsApi.push('uploadImage');
+            }
+            if (opts.baseapi_downloadImage) {
+                jsApi.push('downloadImage');
+            }
+            if (opts.baseapi_translateVoice) {
+                jsApi.push('translateVoice');
+            }
+            if (opts.baseapi_getNetworkType) {
+                jsApi.push('getNetworkType');
+            }
+            if (opts.baseapi_openLocation) {
+                jsApi.push('openLocation');
+            }
+            if (opts.baseapi_getLocation) {
+                jsApi.push('getLocation');
+            }
+            if (opts.baseapi_chooseWXPay) {
+                jsApi.push('chooseWXPay');
+            }
+            if (opts.baseapi_openProductSpecificView) {
+                jsApi.push('openProductSpecificView');
+            }
+            if (opts.baseapi_addCard) {
+                jsApi.push('addCard');
+            }
+            if (opts.baseapi_chooseCard) {
+                jsApi.push('chooseCard');
+            }
+            if (opts.baseapi_openCard) {
+                jsApi.push('openCard');
+            }
+            if (opts.baseapi_scanQRCode) {
+                jsApi.push('scanQRCode');
+            }
+            if (opts.分享到朋友圈) {
+                menuList.push('menuItem:share:timeline');
+            }
+            if (opts.发送给朋友) {
+                menuList.push('menuItem:share:appMessage');
+            }
+            if (opts.收藏) {
+                menuList.push('menuItem:favorite');
+            }
+            if (opts.在Safari中打开) {
+                menuList.push('menuItem:openWithSafari');
+            }
+            if (opts.邮件) {
+                menuList.push('menuItem:share:email');
+            }
+            if (opts.分享到QQ) {
+                menuList.push('menuItem:share:qq');
+            }
+            if (opts.分享到QQ空间) {
+                menuList.push('menuItem:share:QZone');
+            }
+            if (opts.分享到Weibo) {
+                menuList.push('menuItem:share:weiboApp');
+            }
+            if (opts.复制链接) {
+                menuList.push('menuItem:copyUrl');
+            }
+            if (opts.调整字体) {
+                menuList.push('menuItem:setFont');
+            }
+            if (opts.阅读模式) {
+                menuList.push('menuItem:readMode');
+            }
+            if (opts.刷新) {
+                menuList.push('menuItem:refresh');
+            }
+            WX.config({
+                debug: opts.debug,
+                appId: opts.appId,
+                timestamp: opts.timestamp,
+                nonceStr: opts.nonceStr,
+                signature: opts.signature,
+                jsApiList: jsApi
+            });
+            WX.ready(function () {
+                if (opts.hideOptionMenu) {
+                    WX.hideOptionMenu();
+                }
+                WX.showMenuItems({menuList: menuList});
+            });
+        } catch (e) {
+            d.error('config.wxInit error' + e.message);
+            d.lookDebug('wxInit error:' + e.message);
+        }
     };
 
     /**
@@ -515,26 +328,30 @@
 
     /**
      * 分享到朋友圈
+     @param forword 转发对象
      @param success 转发成功回调函数 {Function}
      @param cancel  取消转发回调函数 {Function}
      */
-    $.fn.Forword = $.Forword = function (success, cancel) {
+    $.fn.Forword = $.Forword = function (forword, success, cancel) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.onMenuShareTimeline({
-                    title: opts.forword_title, // 分享标题
-                    desc: opts.forword_desc, // 分享描述
-                    link: opts.forword_link, // 分享链接
-                    imgUrl: opts.forword_imgUrl, // 分享图标
-                    type: opts.forword_type, // 分享类型,music、video或link，不填默认为link
-                    dataUrl: opts.forword_dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
+                    title: forword.forword_title, // 分享标题
+                    desc: forword.forword_desc, // 分享描述
+                    link: forword.forword_link, // 分享链接
+                    imgUrl: forword.forword_imgUrl, // 分享图标
+                    type: forword.forword_type, // 分享类型,music、video或link，不填默认为link
+                    dataUrl: forword.forword_dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
                     success: function (res) {
                         success && success.call(_self, res);
                     },
                     cancel: function (res) {
-                        // 用户取消分享后执行的回调函数
-                        cancel && cancel.call(_self, res);
+                        /**
+                         * res 回调对象
+                         * forword 转发原始参数
+                         */
+                        cancel && cancel.call(_self, res, forword);
                     }
                 });
             });
@@ -547,30 +364,30 @@
 
 
     /**
-     *分享给朋友
+     * 分享给朋友
      * @param success
      * @param cancel
-     * @returns {$.fn.ForwordToFriend}
+     * @returns {$.fn.ShareQQ}
      * @constructor
      */
-    $.fn.ForwordToFriend = $.ForwordToFriend = function (success, cancel) {
+    $.fn.ForwordToFriend = $.ForwordToFriend = function (forword, success, cancel) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.onMenuShareAppMessage({
-                    title: opts.forword_title, // 分享标题
-                    desc: opts.forword_desc, // 分享描述
-                    link: opts.forword_link, // 分享链接
-                    imgUrl: opts.forword_imgUrl, // 分享图标
-                    type: opts.forword_type, // 分享类型,music、video或link，不填默认为link
-                    dataUrl: opts.forword_dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
+                    title: forword.forword_title, // 分享标题
+                    desc: forword.forword_desc, // 分享描述
+                    link: forword.forword_link, // 分享链接
+                    imgUrl: forword.forword_imgUrl, // 分享图标
+                    type: forword.forword_type, // 分享类型,music、video或link，不填默认为link
+                    dataUrl: forword.forword_dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
                     success: function (res) {
                         // 用户确认分享后执行的回调函数
-                        success && success.call(_self, res);
+                        success && success.call(_self, res, forword);
                     },
                     cancel: function (res) {
                         // 用户取消分享后执行的回调函数
-                        cancel && cancel.call(_self, res);
+                        cancel && cancel.call(_self, res, forword);
                     }
                 });
             });
@@ -589,22 +406,22 @@
      * @returns {$.fn.ShareQQ}
      * @constructor
      */
-    $.fn.ShareQQ = $.ShareQQ = function (success, cancel) {
+    $.fn.ShareQQ = $.ShareQQ = function (forword, success, cancel) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.onMenuShareQQ({
-                    title: opts.forword_title, // 分享标题
-                    desc: opts.forword_desc, // 分享描述
-                    link: opts.forword_link, // 分享链接
-                    imgUrl: opts.forword_imgUrl, // 分享图标
-                    success: function () {
+                    title: forword.forword_title, // 分享标题
+                    desc: forword.forword_desc, // 分享描述
+                    link: forword.forword_link, // 分享链接
+                    imgUrl: forword.forword_imgUrl, // 分享图标
+                    success: function (res) {
                         // 用户确认分享后执行的回调函数
-                        success && success.call(_self, res);
+                        success && success.call(_self, res, forword);
                     },
-                    cancel: function () {
+                    cancel: function (res) {
                         // 用户取消分享后执行的回调函数
-                        cancel && cancel.call(_self, res);
+                        cancel && cancel.call(_self, res, forword);
                     }
                 });
             });
@@ -623,22 +440,22 @@
      * @returns {$.fn.ShareWeibo}
      * @constructor
      */
-    $.fn.ShareWeibo = $.ShareWeibo = function (success, cancel) {
+    $.fn.ShareWeibo = $.ShareWeibo = function (forword, success, cancel) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.onMenuShareWeibo({
-                    title: opts.forword_title, // 分享标题
-                    desc: opts.forword_desc, // 分享描述
-                    link: opts.forword_link, // 分享链接
-                    imgUrl: opts.forword_imgUrl, // 分享图标
-                    success: function () {
+                    title: forword.forword_title, // 分享标题
+                    desc: forword.forword_desc, // 分享描述
+                    link: forword.forword_link, // 分享链接
+                    imgUrl: forword.forword_imgUrl, // 分享图标
+                    success: function (res) {
                         // 用户确认分享后执行的回调函数
-                        success && success.call(_self, res);
+                        success && success.call(_self, res, forword);
                     },
-                    cancel: function () {
+                    cancel: function (res) {
                         // 用户取消分享后执行的回调函数
-                        cancel && cancel.call(_self, res);
+                        cancel && cancel.call(_self, res, forword);
                     }
                 });
             });
@@ -657,22 +474,22 @@
      * @returns {$.fn.ShareQZone}
      * @constructor
      */
-    $.fn.ShareQZone = $.ShareQZone = function (success, cancel) {
+    $.fn.ShareQZone = $.ShareQZone = function (forword, success, cancel) {
         var _self = this;
         try {
             WX.ready(function () {
                 WX.onMenuShareQZone({
-                    title: opts.forword_title, // 分享标题
-                    desc: opts.forword_desc, // 分享描述
-                    link: opts.forword_link, // 分享链接
-                    imgUrl: opts.forword_imgUrl, // 分享图标
-                    success: function () {
+                    title: forword.forword_title, // 分享标题
+                    desc: forword.forword_desc, // 分享描述
+                    link: forword.forword_link, // 分享链接
+                    imgUrl: forword.forword_imgUrl, // 分享图标
+                    success: function (res) {
                         // 用户确认分享后执行的回调函数
-                        success && success.call(_self, res);
+                        success && success.call(_self, res, forword);
                     },
-                    cancel: function () {
+                    cancel: function (res) {
                         // 用户取消分享后执行的回调函数
-                        cancel && cancel.call(_self, res);
+                        cancel && cancel.call(_self, res, forword);
                     }
                 });
             });
@@ -719,16 +536,20 @@
      */
     $.fn.PreviewImage = $.PreviewImage = function (previewCurrentImg, previewUrls) {
         var _self = this;
-        try {
-            WX.ready(function () {
-                WX.previewImage({
-                    current: previewCurrentImg, // 当前显示图片的http链接
-                    urls: previewUrls // 需要预览的图片http链接列表 []
+        if (Object.prototype.toString.call(previewUrls) !== "[object Array]") {
+            d.error('PreviewImage error - previewUrls必须是Array类型');
+        } else {
+            try {
+                WX.ready(function () {
+                    WX.previewImage({
+                        current: previewCurrentImg, // 当前显示图片的http链接
+                        urls: previewUrls // 需要预览的图片http链接列表 []
+                    });
                 });
-            });
-        } catch (e) {
-            d.error('PreviewImage error' + e.message);
-            d.lookDebug('PreviewImage error:' + e.message);
+            } catch (e) {
+                d.error('PreviewImage error' + e.message);
+                d.lookDebug('PreviewImage error:' + e.message);
+            }
         }
         return _self;
     };
@@ -787,11 +608,11 @@
      * 获取地理位置
      * @type {Function}
      */
-    $.fn.GetLocation = $.GetLocation = function (success) {
+    $.fn.GetLocation = $.GetLocation = function (type, success) {
         var _self = this;
         try {
             WX.getLocation({
-                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                type: type || 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
                 success: function (res) {
                     var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
                     var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
@@ -823,7 +644,7 @@
                 longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
                 name: res.name || '当前位置', // 位置名
                 address: res.address || '当前位置', // 地址详情说明
-                scale: res.scale || 16, // 地图缩放级别,整形值,范围从1~28。默认为最大
+                scale: res.scale || 14, // 地图缩放级别,整形值,范围从1~28。默认为最大
                 infoUrl: res.infoUrl || '000' // 在查看位置界面底部显示的超链接,可点击跳转
             });
         } catch (e) {
@@ -869,21 +690,21 @@
     };
 
     /**
-     * 支付接口
+     * 发起支付请求
      * @type {Function}
      */
-    $.fn.ChooseWXPay = $.ChooseWXPay = function (success) {
+    $.fn.ChooseWXPay = $.ChooseWXPay = function (pay, success) {
         var _self = this;
         try {
             WX.chooseWXPay({
-                timestamp: opts.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-                nonceStr: opts.nonceStr, // 支付签名随机串，不长于 32 位
-                package: '000', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-                signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-                paySign: '000000000', // 支付签名
+                timestamp: pay.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                nonceStr: pay.nonceStr, // 支付签名随机串，不长于 32 位
+                package: pay.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                signType: pay.signType || 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                paySign: pay.paySign, // 支付签名
                 success: function (res) {
                     // 支付成功后的回调函数
-                    success && success.call(_self, res);
+                    success && success.call(_self, res, pay);
                 }
             });
         } catch (e) {
@@ -891,23 +712,24 @@
             d.lookDebug('ShowOptionMenu error:' + e.message);
         }
         return _self;
-    }
+    };
 
 
     /**
      * 创建卡券
      * @type {Function}
      */
-    $.fn.CreateCard = $.CreateCard = function (data, success) {
+    $.fn.CreateCard = $.CreateCard = function (CreateCard, success) {
         var _self = this;
+        //{
+        //    'Access_Token': '',
+        //    'Data': {'DataInfo':''}
+        //}
         try {
             $.ajax({
-                type: "POST",
-                url: opts.WeChatCard.CreateCard.api,
-                data: {
-                    "Access_Token": opts.access_token,
-                    "Data": {"DataInfo": JSON.stringify(data)}
-                },
+                type: CreateCard.type || 'POST',
+                url: CreateCard.api,
+                data: CreateCard.data,
                 success: function (result) {
                     /**
                      * result 创建的卡券对象
@@ -932,28 +754,25 @@
      * 获取卡券签名
      * @type {Function}
      */
-    $.fn.GetWxCardSignature = $.GetWxCardSignature = function (card_id, openid, code, success) {
+    $.fn.GetWxCardSignature = $.GetWxCardSignature = function (si, success) {
         var _self = this;
         try {
-            if (Object.prototype.toString.call(arguments[1]) === '[object Function]') {
-                success = arguments[1];
-            }
             $.ajax({
-                type: "get",
-                url: opts.WeChatCard.GetWxCardSignature.api,
+                type: si.type || 'get',
+                url: si.api,
                 async: false,
-                ContentType: opts.ContentType,
-                cache: opts.cache,
-                data: opts.data || {
-                    "url": opts.scanAuthUrl,
-                    "typenum": opts.typenum,
-                    "facid": opts.facid,
-                    "cardid": card_id,
-                    "openid": openid,
-                    "code": code
+                ContentType: si.ContentType || 'application/x-www-form-urlencoded',
+                cache: opts.cache || false,
+                data: {
+                    'url': location.href,
+                    'typenum': opts.typenum,
+                    'facid': opts.facid,
+                    'cardid': si.card_id,
+                    'openid': si.openid,
+                    'code': si.code
                 },
                 success: function (result) {
-                    success && success.call(_self, result, result.Signature_api_ticket);
+                    success && success.call(_self, result);
                 },
                 error: function (error) {
 
@@ -971,23 +790,22 @@
      * 创建卡券二维码
      * @type {Function}
      */
-    $.fn.CreateCardQR = $.CreateCardQR = function (data, success) {
+    $.fn.CreateCardQR = $.CreateCardQR = function (si, success) {
         var _self = this;
+        //{
+        //    'Access_Token': '',
+        //    'Data': {'DataInfo': ''}
+        //}
         try {
             $.ajax({
-                type: "POST",
-                url: opts.WeChatCard.CreateCardQR.api,
-                data: {
-                    "Access_Token": opts.access_token,
-                    "Data": {"DataInfo": JSON.stringify(data)}
-                },
+                type: si.type || 'POST',
+                url: si.api,
+                data: si.data,
                 success: function (result) {
                     /**
                      * result 卡券二维码对象
-                     * errcode 错误码
-                     * show_qrcode_url 推广二维码
                      */
-                    success && success.call(_self, result, result.errcode, result.show_qrcode_url);
+                    success && success.call(_self, result);
                 },
                 error: function (error) {
                     d.error('CreateCardQR error' + JSON.stringify(error));
@@ -1005,13 +823,13 @@
      * 批量添加卡券
      * @type {Function}
      */
-    $.fn.AddCard = $.AddCard = function (cardid, signature_api_ticket, success) {
+    $.fn.AddCard = $.AddCard = function (card, success) {
         var _self = this;
         try {
             WX.addCard({
                 cardList: [{
-                    cardId: cardid,
-                    cardExt: '{"nonce_str":"' + opts.nonceStr + '","timestamp" :"' + opts.timestamp + '", "signature":"' + signature_api_ticket + '"}'
+                    cardId: card.cardid,
+                    cardExt: '{"nonce_str":"' + card.nonceStr + '","timestamp" :"' + card.timestamp + '", "signature":"' + card.signature + '"}'
                 }], // 需要添加的卡券列表
                 success: function (res) {
                     var cardList = res.cardList; // 添加的卡券列表信息
@@ -1065,20 +883,7 @@
     $.fn.IsWeChatBrower = $.IsWeChatBrower = function (callback) {
         var ua = window.navigator.userAgent.toLowerCase();
         var _self = this;
-        if (!callback) {
-            if (!opts.callback_WeChatBrower) {
-                d.error('请先初始化参数IsWeChatBrower函数的回调函数callback_WeChatBrower!');
-                return;
-            }
-            callback = opts.callback_WeChatBrower;
-            if (ua.match(/micromessenger/i) != 'micromessenger') {
-                callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
-            }
-        } else {
-            callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
-        }
+        callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
     };
-
-
 })(jQuery, wx);
