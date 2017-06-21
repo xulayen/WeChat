@@ -70,58 +70,71 @@
 初始化微信基础信息
 
 ```js
- var wecharManage=$.WeChart({
-   api: 'http://127.0.0.1:8544/Wechart/WeChat.asmx/GetWeChatParamters',
-   callback_success: function (result) {
-       var data = result;
-       this.appId = data.APPID;
-       this.timestamp = data.TIMESTAMP;
-       this.nonceStr = data.NONCESTR;
-       this.signature = data.SIGNATURE;
-   },
-   scanAuthUrl: "http://152l8u0817.51mypc.cn/jt/wechart/index.html",
-   typenum: 2,
-   facid: 10,
-   分享到朋友圈: true,
-   forword_title: 'cccccccccccccccc',
-   forword_link: 'http://www.baidu.com/'
-  });
+
+var weChat=$.WeChart({
+     api: config.api,
+     type: 'GET',
+     facid: config.facid,
+     typenum: config.typenum,
+     async: false
+ });
+ 
+WeChat.InitWeChat({
+    分享到朋友圈: true,
+    发送给朋友: true
+});
+
+//分享到朋友圈
+wechatManage.Forword({
+    forword_title: "标题",
+    forword_desc: '描述',
+    forword_link: '链接',
+    forword_imgUrl: '图片地址'
+});
+
+//分享给朋友
+wechatManage.ForwordToFriend({
+    forword_title: "标题",
+    forword_desc: '描述',
+    forword_link: '链接',
+    forword_imgUrl: '图片地址'
+});
  
  当前页面可以转发
- $.Forword(success,cancel) wecharManage.Forword(success,cancel)
+ $.Forword({},success,cancel) WeChat.Forword({},success,cancel)
  
  分享给朋友
- $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
+ $.ForwordToFriend({},success,cancel) WeChat.ForwordToFriend({},success,cancel)
  
  分享到QQ
- $.ShareQQ(success,cancel) wecharManage.ShareQQ(success,cancel)
+ $.ShareQQ({},success,cancel) WeChat.ShareQQ({},success,cancel)
  
  分享到微博
- $.ShareWeibo(success,cancel) wecharManage.ShareWeibo(success,cancel)
+ $.ShareWeibo({},success,cancel) WeChat.ShareWeibo({},success,cancel)
  
  分享到QQ空间
- $.ShareQZone(success,cancel) wecharManage.ShareQZone(success,cancel)
+ $.ShareQZone({},success,cancel) WeChat.ShareQZone({},success,cancel)
  
  分享给朋友
- $.ForwordToFriend(success,cancel) wecharManage.ForwordToFriend(success,cancel)
+ $.ForwordToFriend({},success,cancel) WeChat.ForwordToFriend({},success,cancel)
  
  微信初始化失败回调
- $.InitWxError(fn) wecharManage.InitWxError(fn)
+ $.InitWxError(fn) WeChat.InitWxError(fn)
  
  获取地理位置
- $.GetLocation(success) wecharManage.GetLocation(success)
+ $.GetLocation(success) WeChat.GetLocation(success)
  
  获取网络状态
- $.GetNetWorkType(success) wecharManage.GetNetWorkType(success)
+ $.GetNetWorkType(success) WeChat.GetNetWorkType(success)
  
  隐藏菜单
- $.HideOptionMenu() wecharManage.HideOptionMenu()
+ $.HideOptionMenu() WeChat.HideOptionMenu()
  
  显示菜单
- $.ShowOptionMenu() wecharManage.ShowOptionMenu()
+ $.ShowOptionMenu() WeChat.ShowOptionMenu()
  
  关闭页面
- $.CloseWindow() wecharManage.CloseWindow()
+ $.CloseWindow() WeChat.CloseWindow()
  
  按钮5可以调取摄像头
  $("#btn5").Scan(success)
