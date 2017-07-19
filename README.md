@@ -166,21 +166,20 @@ https://xulayen.github.i
         return this || (typeof window !== 'undefined' ? window : global);
     });
 
+
+
+
+    ;
+    (function (factory) {
+        if (typeof define === "function" && define.amd) {
+            // AMD模式
+            define(["jquery"], factory);
+        } else {
+            // 全局模式
+            factory(jQuery);
+        }
+    }(function ($) {
+        //插件代码
+    }));
+
 ```
-
-## Jquery插件实现amd
-    ```js
-        ;
-        (function (factory) {
-            if (typeof define === "function" && define.amd) {
-                // AMD模式
-                define(["jquery"], factory);
-            } else {
-                // 全局模式
-                factory(jQuery);
-            }
-        }(function ($) {
-            //插件代码
-        }));
-
-    ```
