@@ -143,5 +143,44 @@ wechatManage.ForwordToFriend({
  $("#btn6").Scan(success);
 
 ```
-https://xulayen.github.io/WeChat/index.html
- 
+https://xulayen.github.i
+
+
+## 实现AMD CMD
+```js
+
+    ;(function(){
+        function MyModule() {
+            // ...
+        }
+
+        var moduleName = MyModule;
+        if (typeof module !== 'undefined' && typeof exports === 'object') {
+            module.exports = moduleName;
+        } else if (typeof define === 'function' && (define.amd || define.cmd)) {
+            define(function() { return moduleName; });
+        } else {
+            this.moduleName = moduleName;
+        }
+    }).call(function() {
+        return this || (typeof window !== 'undefined' ? window : global);
+    });
+
+```
+
+## Jquery插件实现amd
+    ```js
+        ;
+        (function (factory) {
+            if (typeof define === "function" && define.amd) {
+                // AMD模式
+                define(["jquery"], factory);
+            } else {
+                // 全局模式
+                factory(jQuery);
+            }
+        }(function ($) {
+            //插件代码
+        }));
+
+    ```
