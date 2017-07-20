@@ -2,16 +2,19 @@
  * Created by xulayen on 2016/9/14.
  */
 
-;
-(function (factory) {
-    if (typeof define === "function" && define.amd) {
-        // AMD模式
-        define(["jquery", 'wx'], factory);
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node, CommonJS之类的
+        module.exports = factory(require('jquery'));
     } else {
-        // 全局模式
-        factory(jQuery, wx);
+        // 浏览器全局变量(root 即 window)
+        root.returnExports = factory(root.jQuery);
     }
-}(function ($, WX) {
+}(this, function ($) {
+    var WX = require('weixin-js-sdk');
     var WXAPIConfig = {
         debug: false,
         baseapi_checkJsApi: true,
@@ -91,11 +94,7 @@
             return this;
         },
         error: function (a) {
-            console.error(a)
             throw a;
-        },
-        warn: function (a) {
-            console.warn(a)
         },
         lookDebug: function (a) {
             if (opts.debug) {
@@ -110,39 +109,9 @@
     d.prototype.init.prototype = d.prototype;
     d = d();
 
-    function WeChart(options, success, error) {
+    function WeChart(options) {
         var _self = this;
         opts = $.extend({}, WXAPIConfig, options);
-        var $_c = {
-            Init: function () {
-                if (opts.api) {
-                    $.ajax({
-                        type: opts.type,
-                        url: opts.api,
-                        async: opts.async,
-                        ContentType: opts.ContentType,
-                        cache: opts.cache,
-                        data: {'url': opts.scanAuthUrl, 'typenum': opts.typenum, 'facid': opts.facid},
-                        success: function (result) {
-                            d.lookDebug('Ajax success:' + JSON.stringify(result));
-                            opts.appId = result.APPID;
-                            opts.timestamp = result.TIMESTAMP;
-                            opts.nonceStr = result.NONCESTR;
-                            opts.signature = result.SIGNATURE;
-                            opts.access_token = result.ACCESS_TOKEN;
-                            success && success.call(opts, result);
-                        },
-                        error: function (error) {
-                            d.error('NetWork is busy!');
-                            d.lookDebug('Ajax error:' + JSON.stringify(error));
-                            error && error.call(opts, error);
-                        }
-                    });
-                } else {
-                    d.warn('请先初始化微信api');
-                }
-            }()
-        };
         return _self;
     };
 
@@ -150,10 +119,38 @@
      * 微信初始化
      * @type {Function}
      */
-    $.fn.InitWeChat = $.InitWeChat = function (config) {
+    $.fn.InitWeChat = $.InitWeChat = function (config, success, error) {
         var _self = this;
         opts = $.extend({}, opts, config);
         try {
+            if (opts.api) {
+                $.ajax({
+                    type: opts.type,
+                    url: opts.api,
+                    async: opts.async,
+                    ContentType: opts.ContentType,
+                    cache: opts.cache,
+                    data: {'url': opts.scanAuthUrl, 'typenum': opts.typenum, 'facid': opts.facid},
+                    success: function (result) {
+                        d.lookDebug('Ajax success:' + JSON.stringify(result));
+                        opts.appId = result.APPID;
+                        opts.timestamp = result.TIMESTAMP;
+                        opts.nonceStr = result.NONCESTR;
+                        opts.signature = result.SIGNATURE;
+                        opts.access_token = result.ACCESS_TOKEN;
+                        success && success.call(opts, result);
+                    },
+                    error: function (error) {
+                        d.error('NetWork is busy!');
+                        d.lookDebug('Ajax error:' + JSON.stringify(error));
+                        error && error.call(opts, error);
+                    }
+                });
+            } else {
+                d.error('请先初始化微信api');
+            }
+            ;
+
             var jsApi = [], menuList = [];
             if (opts.baseapi_checkJsApi) {
                 jsApi.push('checkJsApi');
@@ -889,4 +886,18 @@
         callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
     };
+}));
+
+;
+(function (factory) {
+    if (typeof define === "function" && define.amd) {
+        // AMD模式
+        define(["jquery"], factory);
+    } else {
+        // 全局模式
+        factory(jQuery);
+    }
+}(function ($) {
+
+
 }));
