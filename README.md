@@ -1,4 +1,28 @@
-# WeChat
+# WeChat帮助插件
+
+## 安装
+
+
+``` bash
+
+$ git clone https://github.com/xulayen/WeChat.git & cd Wechat
+
+
+$ npm install
+
+
+$ npm start
+
+
+```
+
+## 执行
+
+
+浏览器中打开 http://localhost:3000/index.html
+
+
+
 ```html   
  Created by xulayen on 2016/9/14.
  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

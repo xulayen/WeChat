@@ -1,6 +1,6 @@
 {
   "name": "wechat",
-  "version": "1.0.0",
+  "version": "1.2.2",
   "description": "wechat api tools with jq",
   "main": "index.js",
   "scripts": {
