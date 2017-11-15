@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/weixin-js-sdk/package.json" afterPath="$PROJECT_DIR$/node_modules/weixin-js-sdk/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WeChat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,90 +33,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Jquery.WeChat.1.2.2.beta.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.beta.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1596" max-vertical-offset="9253">
-              <caret line="94" column="10" selection-start-line="94" selection-start-column="10" selection-end-line="94" selection-end-column="10" />
-              <folding>
-                <element signature="e#11095#11569#0" expanded="false" />
-                <element signature="e#11787#12907#0" expanded="false" />
-                <element signature="e#13117#14214#0" expanded="false" />
-                <element signature="e#14416#15316#0" expanded="false" />
-                <element signature="e#15519#16428#0" expanded="false" />
-                <element signature="e#16642#17551#0" expanded="false" />
-                <element signature="e#17712#18510#0" expanded="false" />
-                <element signature="e#18680#19344#0" expanded="false" />
-                <element signature="e#19504#20162#0" expanded="false" />
-                <element signature="e#20284#20835#0" expanded="false" />
-                <element signature="e#20957#21829#0" expanded="false" />
-                <element signature="e#21941#22578#0" expanded="false" />
-                <element signature="e#22695#23003#0" expanded="false" />
-                <element signature="e#23119#23427#0" expanded="false" />
-                <element signature="e#23547#24363#0" expanded="false" />
-                <element signature="e#24487#25352#0" expanded="false" />
-                <element signature="e#25485#26452#0" expanded="false" />
-                <element signature="e#26574#27273#0" expanded="false" />
-                <element signature="e#27387#28196#0" expanded="false" />
-                <element signature="e#28308#28607#0" expanded="false" />
-                <element signature="e#28728#28880#0" expanded="false" />
-                <element signature="e#29004#29209#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/js/config/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="14230" max-vertical-offset="15143">
-              <caret line="853" column="0" selection-start-line="853" selection-start-column="0" selection-end-line="853" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#88#2541#0" expanded="false" />
-                <element signature="e#2598#2677#0" expanded="false" />
-                <element signature="e#2702#2748#0" expanded="false" />
-                <element signature="e#2768#3141#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Jquery.WeChat.1.2.1.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.1.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2235" max-vertical-offset="3553">
-              <caret line="330" column="7" selection-start-line="330" selection-start-column="7" selection-end-line="330" selection-end-column="7" />
-              <folding>
-                <element signature="e#88#2541#0" expanded="false" />
-                <element signature="e#2598#2677#0" expanded="false" />
-                <element signature="e#2702#2748#0" expanded="false" />
-                <element signature="e#2768#3238#0" expanded="false" />
-                <element signature="e#3344#4839#0" expanded="false" />
-                <element signature="e#4950#10753#0" expanded="false" />
-                <element signature="e#10856#11330#0" expanded="false" />
-                <element signature="e#11548#12668#0" expanded="false" />
-                <element signature="e#12878#13975#0" expanded="false" />
-                <element signature="e#14177#15077#0" expanded="false" />
-                <element signature="e#15280#16189#0" expanded="false" />
-                <element signature="e#16403#17312#0" expanded="false" />
-                <element signature="e#17473#18271#0" expanded="false" />
-                <element signature="e#18441#19105#0" expanded="false" />
-                <element signature="e#19265#19923#0" expanded="false" />
-                <element signature="e#20045#20596#0" expanded="false" />
-                <element signature="e#20718#21590#0" expanded="false" />
-                <element signature="e#21702#22339#0" expanded="false" />
-                <element signature="e#22456#22764#0" expanded="false" />
-                <element signature="e#22880#23188#0" expanded="false" />
-                <element signature="e#23308#24124#0" expanded="false" />
-                <element signature="e#24248#25113#0" expanded="false" />
-                <element signature="e#25246#26213#0" expanded="false" />
-                <element signature="e#26335#27034#0" expanded="false" />
-                <element signature="e#27148#27957#0" expanded="false" />
-                <element signature="e#28069#28368#0" expanded="false" />
-                <element signature="e#28489#28641#0" expanded="false" />
-                <element signature="e#28765#28970#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.33079433" vertical-offset="0" max-vertical-offset="919">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,60 +56,50 @@
       <file leaf-file-name="Jquery.WeChat.1.2.2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.833333" vertical-offset="9319" max-vertical-offset="16872">
-              <caret line="511" column="11" selection-start-line="511" selection-start-column="11" selection-end-line="511" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16853">
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
               <folding>
-                <element signature="e#3038#3117#0" expanded="false" />
+                <element signature="e#2965#3044#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
+      <file leaf-file-name="index.original.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/index.original.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1216">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="54" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logger.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/js/log4js/logger.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/js/config/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="152">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="684">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state vertical-scroll-proportion="-11.137931" vertical-offset="38" max-vertical-offset="893">
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/xtend/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="1748">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4066">
-              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1197" max-vertical-offset="4104">
+              <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -180,8 +108,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.035714" vertical-offset="3520" max-vertical-offset="6517">
-              <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
+            <state vertical-scroll-proportion="-5.5172415" vertical-offset="1352" max-vertical-offset="6593">
+              <caret line="88" column="42" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -205,14 +133,16 @@
         <option value="$PROJECT_DIR$/d.html" />
         <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.beta.js" />
         <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.1.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" />
         <option value="$PROJECT_DIR$/server/js/server.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/server/js/config/config.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/node_modules/weixin-js-sdk/index.js" />
+        <option value="$PROJECT_DIR$/node_modules/jquery_wechat_sdk/index.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -276,11 +206,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="script" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeChat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeChat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -490,71 +442,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17252">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#3038#3117#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2679" max-vertical-offset="3610">
-          <caret line="141" column="11" selection-start-line="141" selection-start-column="11" selection-end-line="141" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1843" max-vertical-offset="5719">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.beta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9253">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#11095#11569#0" expanded="false" />
-            <element signature="e#11787#12907#0" expanded="false" />
-            <element signature="e#13117#14214#0" expanded="false" />
-            <element signature="e#14416#15316#0" expanded="false" />
-            <element signature="e#15519#16428#0" expanded="false" />
-            <element signature="e#16642#17551#0" expanded="false" />
-            <element signature="e#17712#18510#0" expanded="false" />
-            <element signature="e#18680#19344#0" expanded="false" />
-            <element signature="e#19504#20162#0" expanded="false" />
-            <element signature="e#20284#20835#0" expanded="false" />
-            <element signature="e#20957#21829#0" expanded="false" />
-            <element signature="e#21941#22578#0" expanded="false" />
-            <element signature="e#22695#23003#0" expanded="false" />
-            <element signature="e#23119#23427#0" expanded="false" />
-            <element signature="e#23547#24363#0" expanded="false" />
-            <element signature="e#24487#25352#0" expanded="false" />
-            <element signature="e#25485#26452#0" expanded="false" />
-            <element signature="e#26574#27273#0" expanded="false" />
-            <element signature="e#27387#28196#0" expanded="false" />
-            <element signature="e#28308#28607#0" expanded="false" />
-            <element signature="e#28728#28880#0" expanded="false" />
-            <element signature="e#29004#29209#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1843" max-vertical-offset="5719">
-          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2102" max-vertical-offset="16750">
@@ -850,14 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325893" vertical-offset="23127" max-vertical-offset="120025">
-          <caret line="937" column="18" selection-start-line="937" selection-start-column="18" selection-end-line="937" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="750">
@@ -954,22 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06397306" vertical-offset="0" max-vertical-offset="891">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1821192" vertical-offset="8062" max-vertical-offset="8968">
-          <caret line="433" column="39" selection-start-line="433" selection-start-column="39" selection-end-line="433" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/js/log4js/logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
@@ -978,52 +841,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/config/config.js">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1197" max-vertical-offset="4104">
+          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/path/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1216">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="54" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.1919192" vertical-offset="0" max-vertical-offset="1121">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/xtend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="1748">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/index.original.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="906">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.137931" vertical-offset="38" max-vertical-offset="893">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/.npmignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.042505592" vertical-offset="0" max-vertical-offset="894">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33297062" vertical-offset="26465" max-vertical-offset="91219">
+          <caret line="1409" column="36" selection-start-line="1409" selection-start-column="36" selection-end-line="1409" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18874173" vertical-offset="0" max-vertical-offset="8968">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.035714" vertical-offset="3520" max-vertical-offset="6517">
-          <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
+        <state vertical-scroll-proportion="-5.5172415" vertical-offset="1352" max-vertical-offset="6593">
+          <caret line="88" column="42" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.833333" vertical-offset="9319" max-vertical-offset="16872">
-          <caret line="511" column="11" selection-start-line="511" selection-start-column="11" selection-end-line="511" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="16853">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
           <folding>
-            <element signature="e#3038#3117#0" expanded="false" />
+            <element signature="e#2965#3044#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jquery_wechat_sdk/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2305962" vertical-offset="293" max-vertical-offset="16967">
+          <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.75" vertical-offset="0" max-vertical-offset="684">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.3838384" vertical-offset="0" max-vertical-offset="891">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4066">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33079433" vertical-offset="0" max-vertical-offset="919">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding />
         </state>
       </provider>

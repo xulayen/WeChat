@@ -1,5 +1,5 @@
 {
-  "name": "wechat",
+  "name": "wehcat",
   "version": "1.2.2",
   "description": "wechat api tools with jq",
   "main": "index.js",
@@ -22,6 +22,7 @@
     "express": "^4.16.2",
     "http": "0.0.0",
     "jquery": "^3.2.1",
+    "jquery_wechat_sdk": "^1.0.6",
     "log4js": "^2.3.12",
     "path": "^0.12.7",
     "require": "^2.4.20",

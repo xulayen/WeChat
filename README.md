@@ -22,6 +22,8 @@ $ npm start
 浏览器中打开 http://localhost:3000/index.html
 
 
+API使用文档：
+
 
 ```html   
  Created by xulayen on 2016/9/14.
