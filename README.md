@@ -1,6 +1,6 @@
 # WeChat帮助插件
 
-## 安装
+## 站点安装
 
 
 ``` bash
@@ -16,10 +16,28 @@ $ npm start
 
 ```
 
-## 执行
+## 站点执行
 
 
 浏览器中打开 http://localhost:3000/index.html
+
+
+## npm下载
+
+``` bash
+
+$ npm install jquery_wechat_sdk
+
+
+```
+
+## 使用
+
+``` bash
+
+$ var wx = require('jquery_wechat_sdk');
+
+```
 
 
 API使用文档：
