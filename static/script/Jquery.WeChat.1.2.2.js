@@ -1,20 +1,19 @@
 ﻿/**
  * Created by xulayen on 2016/9/14.
  */
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['jquery'], factory);
+        define(['jquery', 'weixin-js-sdk'], factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS之类的
-        module.exports = factory(require('jquery'));
+        module.exports = factory(require('jquery'), require('weixin-js-sdk'));
     } else {
         // 浏览器全局变量(root 即 window)
-        root.returnExports = factory(root.jQuery);
+        root.returnExports = factory(root.jQuery, root.wx);
     }
-}(this, function ($) {
-    var WX = require('weixin-js-sdk');
+}(this, function ($, wx) {
+    var WX = wx;
     var WXAPIConfig = {
         debug: false,
         baseapi_checkJsApi: true,
@@ -57,18 +56,18 @@
         nonceStr: null,
         signature: null,
         access_token: null,
-        分享到朋友圈: false, //'menuItem:share:timeline'
-        发送给朋友: false, //, 'menuItem:share:appMessage',
-        收藏: false, //, 'menuItem:favorite',
-        在Safari中打开: false, //,'menuItem:openWithSafari',
-        邮件: false, //,'menuItem:share:email',
-        分享到QQ: false, //,'menuItem:share:qq',
-        分享到QQ空间: false, //, 'menuItem:share:QZone',
-        分享到Weibo: false, //, 'menuItem:share:weiboApp',
-        复制链接: false, //, 'menuItem:copyUrl',
-        调整字体: false, //, 'menuItem:setFont',
-        阅读模式: false, //,'menuItem:readMode',
-        刷新: false, //,'menuItem:refresh',
+        menu_share_timeline: false, //'menuItem:share:timeline'
+        menu_share_appMessage: false, //, 'menuItem:share:appMessage',
+        menu_share_favorite: false, //, 'menuItem:favorite',
+        menu_share_openWithSafari: false, //,'menuItem:openWithSafari',
+        menu_share_email: false, //,'menuItem:share:email',
+        menu_share_qq: false, //,'menuItem:share:qq',
+        menu_share_QZone: false, //, 'menuItem:share:QZone',
+        menu_share_weiboApp: false, //, 'menuItem:share:weiboApp',
+        menu_share_copyUrl: false, //, 'menuItem:copyUrl',
+        menu_share_setFont: false, //, 'menuItem:setFont',
+        menu_share_readMode: false, //,'menuItem:readMode',
+        menu_share_refresh: false, //,'menuItem:refresh',
         api: '',
         facid: '00446',
         typenum: '1',
@@ -257,40 +256,40 @@
             if (opts.baseapi_scanQRCode) {
                 jsApi.push('scanQRCode');
             }
-            if (opts.分享到朋友圈) {
+            if (opts.menu_share_timeline) {
                 menuList.push('menuItem:share:timeline');
             }
-            if (opts.发送给朋友) {
+            if (opts.menu_share_appMessage) {
                 menuList.push('menuItem:share:appMessage');
             }
-            if (opts.收藏) {
+            if (opts.menu_share_favorite) {
                 menuList.push('menuItem:favorite');
             }
-            if (opts.在Safari中打开) {
+            if (opts.menu_share_openWithSafari) {
                 menuList.push('menuItem:openWithSafari');
             }
-            if (opts.邮件) {
+            if (opts.menu_share_email) {
                 menuList.push('menuItem:share:email');
             }
-            if (opts.分享到QQ) {
+            if (opts.menu_share_qq) {
                 menuList.push('menuItem:share:qq');
             }
-            if (opts.分享到QQ空间) {
+            if (opts.menu_share_QZone) {
                 menuList.push('menuItem:share:QZone');
             }
-            if (opts.分享到Weibo) {
+            if (opts.menu_share_weiboApp) {
                 menuList.push('menuItem:share:weiboApp');
             }
-            if (opts.复制链接) {
+            if (opts.menu_share_copyUrl) {
                 menuList.push('menuItem:copyUrl');
             }
-            if (opts.调整字体) {
+            if (opts.menu_share_setFont) {
                 menuList.push('menuItem:setFont');
             }
-            if (opts.阅读模式) {
+            if (opts.menu_share_readMode) {
                 menuList.push('menuItem:readMode');
             }
-            if (opts.刷新) {
+            if (opts.menu_share_refresh) {
                 menuList.push('menuItem:refresh');
             }
             WX.config({
@@ -335,7 +334,7 @@
     };
 
     /**
-     * 分享到朋友圈
+     * menu_share_timeline
      @param forword 转发对象
      @param success 转发成功回调函数 {Function}
      @param cancel  取消转发回调函数 {Function}
@@ -408,7 +407,7 @@
 
 
     /**
-     * 分享到QQ
+     * menu_share_qq
      * @param success
      * @param cancel
      * @returns {$.fn.ShareQQ}
@@ -476,7 +475,7 @@
 
 
     /**
-     * 分享到QQ空间
+     * menu_share_QZone
      * @param success
      * @param cancel
      * @returns {$.fn.ShareQZone}
@@ -886,18 +885,4 @@
         callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
     };
-}));
-
-;
-(function (factory) {
-    if (typeof define === "function" && define.amd) {
-        // AMD模式
-        define(["jquery"], factory);
-    } else {
-        // 全局模式
-        factory(jQuery);
-    }
-}(function ($) {
-
-
 }));

@@ -1,0 +1,30 @@
+{
+  "name": "wechat",
+  "version": "1.0.0",
+  "description": "wechat api tools with jq",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xulayen/WeChat.git"
+  },
+  "author": "xulayen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xulayen/WeChat/issues"
+  },
+  "homepage": "https://github.com/xulayen/WeChat#readme",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "jquery": "^3.2.1",
+    "log4js": "^2.3.12",
+    "path": "^0.12.7",
+    "require": "^2.4.20",
+    "weixin-js-sdk": "^1.2.0"
+  }
+}

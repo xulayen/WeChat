@@ -7,6 +7,10 @@ var http = require('http');
 var app = express();
 var path = require('path');
 
+/**
+ * 加载日志
+ */
+var logger = require('./server/js/log4js/logger');
 
 /**
  *  加载ejs模块
@@ -45,10 +49,10 @@ if (config.engine === 'html') {
  * */
 app.use(express.static(__dirname));
 
-console.log(__dirname)
 
 /**
  * 启动网站，端口为3000的
  */
 http.createServer(app).listen(config.port);
-console.log('服务器启动……http://localhost:' + config.port)
+console.log('服务器启动……http://localhost:' + config.port +"| 站点根目录："+__dirname);
+logger.info('【nodejs服务正常启动……】【url:http//localhost:' + config.port + '/】【站点根目录：'+__dirname+'】');

@@ -86,7 +86,7 @@
 </p>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-<script src="static/script/Jquery.WeChat.1.2.2.beta.js" type="text/javascript"></script>
+<script src="static/script/Jquery.WeChat.1.2.2.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 
@@ -100,12 +100,12 @@
     });
 
     wechatManage.InitWeChat({
-        分享到朋友圈: true,
-        发送给朋友: true,
-        在Safari中打开: true,
-        分享到QQ: true,
-        分享到Weibo: true,
-        分享到QQ空间: true
+        menu_share_timeline: true,
+        menu_share_appMessage: true,
+        menu_share_openWithSafari: true,
+        menu_share_qq: true,
+        menu_share_weiboApp: true,
+        menu_share_QZone: true
     });
 
 
