@@ -2,17 +2,23 @@
  * Created by xulayen on 2016/9/14.
  */
 (function (root, factory) {
+    if ( !root.document ) {
+        console.log("jquery_wechat_sdk requires a window with a document")
+        throw new Error( "jquery_wechat_sdk requires a window with a document" );
+        return;
+    }
     if (typeof define === 'function' && define.amd) {
         // AMD
         define(['jquery'], factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS之类的
-        module.exports = factory(require('jquery'));
+        module.exports = factory(require('jquery'),{});
     } else {
         // 浏览器全局变量(root 即 window)
-        root.returnExports = factory(root.jQuery);
+        root.returnExports = factory(root.jQuery,root.jWeixin);
     }
-}(this, function ($) {
+}(this, function ($,weixin) {
+    var WX = weixin || this.jWeixin;
     var WXAPIConfig = {
         debug: false,
         baseapi_checkJsApi: true,
@@ -307,8 +313,8 @@
             });
             return _self;
         } catch (e) {
-            d.error('config.wxInit error' + e.message);
-            d.lookDebug('wxInit error:' + e.message);
+            d.error('config.wxInit error' + e);
+            d.lookDebug('wxInit error:' + e);
         }
     };
 
