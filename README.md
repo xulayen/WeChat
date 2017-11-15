@@ -35,7 +35,7 @@ $ npm install jquery_wechat_sdk
 
 ``` bash
 
-$ var wx = require('jquery_wechat_sdk');
+var wx = require('jquery_wechat_sdk');
 
 ```
 
