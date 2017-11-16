@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdf05512-4615-41e2-b730-7f71df6f04a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" afterPath="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="WeChat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,6 +32,22 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
               <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Jquery.WeChat.1.2.0.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.666667" vertical-offset="12966" max-vertical-offset="15143">
+              <caret line="790" column="27" selection-start-line="790" selection-start-column="27" selection-end-line="790" selection-end-column="27" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#88#2541#0" expanded="false" />
+                <element signature="e#2598#2677#0" expanded="false" />
+                <element signature="e#2702#2748#0" expanded="false" />
+                <element signature="e#2768#3141#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4446">
-              <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.87276787" vertical-offset="35" max-vertical-offset="931">
+              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -88,24 +104,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jquery.WeChat.1.2.2.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Jquery.WeChat.1.2.2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95758927" vertical-offset="15995" max-vertical-offset="16967">
-              <caret line="892" column="4" selection-start-line="892" selection-start-column="4" selection-end-line="892" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="15995" max-vertical-offset="16967">
+              <caret line="881" column="0" selection-start-line="881" selection-start-column="0" selection-end-line="881" selection-end-column="0" />
               <folding>
                 <element signature="e#3232#3311#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.original.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/weixin-js-sdk/index.original.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="152">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -156,8 +162,8 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/node_modules/jquery_wechat_sdk/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -381,7 +387,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -737,20 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14230" max-vertical-offset="15143">
-          <caret line="853" column="0" selection-start-line="853" selection-start-column="0" selection-end-line="853" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#88#2541#0" expanded="false" />
-            <element signature="e#2598#2677#0" expanded="false" />
-            <element signature="e#2702#2748#0" expanded="false" />
-            <element signature="e#2768#3141#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.beta.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1748" max-vertical-offset="9253">
@@ -933,21 +925,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4446">
-          <caret line="31" column="3" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95758927" vertical-offset="15995" max-vertical-offset="16967">
-          <caret line="892" column="4" selection-start-line="892" selection-start-column="4" selection-end-line="892" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15995" max-vertical-offset="16967">
+          <caret line="881" column="0" selection-start-line="881" selection-start-column="0" selection-end-line="881" selection-end-column="0" />
           <folding>
             <element signature="e#3232#3311#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/script/Jquery.WeChat.1.2.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.666667" vertical-offset="12966" max-vertical-offset="15143">
+          <caret line="790" column="27" selection-start-line="790" selection-start-column="27" selection-end-line="790" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#88#2541#0" expanded="false" />
+            <element signature="e#2598#2677#0" expanded="false" />
+            <element signature="e#2702#2748#0" expanded="false" />
+            <element signature="e#2768#3141#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87276787" vertical-offset="35" max-vertical-offset="931">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
