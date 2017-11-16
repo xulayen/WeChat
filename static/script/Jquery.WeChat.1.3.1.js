@@ -1,23 +1,26 @@
 ﻿/**
  * Created by xulayen on 2016/9/14.
  */
-(function (root, factory) {
-    if ( !root.document ) {
-        console.log("jquery_wechat_sdk requires a window with a document")
-        throw new Error( "jquery_wechat_sdk requires a window with a document" );
-        return;
-    }
+;(function (root, factory) {
+    "use strict";
     if (typeof define === 'function' && define.amd) {
         // AMD
         define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
+    } else if (typeof module === "object" && typeof module.exports === "object") {
         // Node, CommonJS之类的
-        module.exports = factory(require('jquery'),{});
+        module.exports = root.document ?
+            factory( require('jquery'),require('weixin-js-sdk') ,true) :
+            function( w ) {
+                if ( !w.document ) {
+                    throw new Error( "jquery_wechat_sdk requires a window with a document" );
+                }
+                return factory(require('jquery'),require('weixin-js-sdk'));
+            };
     } else {
         // 浏览器全局变量(root 即 window)
         root.returnExports = factory(root.jQuery,root.jWeixin);
     }
-}(this, function ($,weixin) {
+}(typeof window !== "undefined" ? window : this, function ($,weixin,noGlobal) {
     var WX = weixin || this.jWeixin;
     var WXAPIConfig = {
         debug: false,
@@ -83,7 +86,7 @@
         ContentType: 'application/x-www-form-urlencoded',
         cache: true
     }, opts = {};
-    $.fn.WeChart = $.WeChart = WeChart;
+
     /**
      * 帮助类
      * @param a
@@ -102,7 +105,6 @@
         },
         lookDebug: function (a) {
             if (opts.debug) {
-                alert(a);
                 console.log(a);
             }
         },
@@ -151,7 +153,10 @@
                     }
                 });
             } else {
-                d.error('请先初始化微信api');
+                if(!opts.appId  || !opts.timestamp || !opts.nonceStr || !opts.signature || !opts.access_token){
+                    d.error(' please init appid parameters first. ');
+                    return;
+                }
             }
             ;
 
@@ -890,4 +895,10 @@
         callback && callback.call(_self, ua.match(/micromessenger/i) == 'micromessenger');
         return _self;
     };
+
+    if ( !noGlobal ) {
+        window.WeChart = WeChart;
+    }
+    $.fn.WeChart = $.WeChart = WeChart;
+    return $;
 }));

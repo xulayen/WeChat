@@ -1,6 +1,5 @@
 var logger = require('../log4js/logger');
 
-
 module.exports = function (app) {
     
     app.get('/', function (req, res) {
