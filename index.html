@@ -28,9 +28,14 @@
             padding: 10px 20px;
             margin: 5px 10px;
         }
+
+        a{
+            text-decoration:underline;
+        }
     </style>
 </head>
 <body>
+
 <p>
     分享到朋友圈、分享给朋友
 </p>
@@ -81,23 +86,23 @@
 <button id="cc">
     <a href="d.html">跳转</a>
 </button>
+<button id="tt">
+    <a>蓝牙</a>
+</button>
+
 <p id="result">
 
 </p>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-<script src="static/script/Jquery.WeChat.1.2.2.js" type="text/javascript"></script>
+<script src="static/script/Jquery.WeChat.1.4.5.js" type="text/javascript"></script>
 
 
 <script type="text/javascript">
-    var wx = require('weixin-js-sdk');
-
-    console.log(wx)
 
     var cardid;
     var wechatManage = $.WeChart({
         api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
-        type: 'GET',
         facid: '00000',
         typenum: '2',
         async: false
@@ -135,6 +140,14 @@
             $("#result").html("获取位置：" + JSON.stringify(res));
             localStorage.setItem("location", JSON.stringify(res))
         });
+    });
+    $("#tt").click(function () {
+
+        $.onSearchBeacons(function(c){
+            alert(c);
+
+        });
+
     });
 
 

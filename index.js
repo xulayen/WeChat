@@ -8,7 +8,6 @@ var app = express();
 var path = require('path');
 
 
-wx = require('jquery_wechat_sdk')
 
 /**
  * 加载日志
