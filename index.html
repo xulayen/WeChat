@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,326 +30,347 @@
             margin: 5px 10px;
         }
 
-        a{
-            text-decoration:underline;
+        a {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
 
-<p>
-    分享到朋友圈、分享给朋友
-</p>
-<button id="btnScan">
-    扫一扫
-</button>
-<button id="btnLocation">
-    获取地理位置
-</button>
+    <p>
+        分享到朋友圈、分享给朋友
+    </p>
+    <button id="btnScan">
+        扫一扫
+    </button>
+    <button id="btnLocation">
+        获取地理位置
+    </button>
 
-<button id="btnOpenLocation">
-    打开地理位置
-</button>
-<button id="btnNetwork">
-    获取网络
-</button>
-<button id="btnYC">
-    隐藏右上角按钮
-</button>
-<button id="btnXS">
-    显示右上角按钮
-</button>
-<button id="btnGB">
-    关闭页面
-</button>
-<button id="btnAddCard">
-    添加卡券
-</button>
-<button id="btnCreateCard">
-    创建卡券
-</button>
-<button id="btnVibrate">
-    点击震动
-</button>
-<button id="btnCreateCardQR">
-    创建卡券二维码
-</button>
+    <button id="btnOpenLocation">
+        打开地理位置
+    </button>
+    <button id="btnNetwork">
+        获取网络
+    </button>
+    <button id="btnYC">
+        隐藏右上角按钮
+    </button>
+    <button id="btnXS">
+        显示右上角按钮
+    </button>
+    <button id="btnGB">
+        关闭页面
+    </button>
+    <button id="btnAddCard">
+        添加卡券
+    </button>
+    <button id="btnCreateCard">
+        创建卡券
+    </button>
+    <button id="btnVibrate">
+        点击震动
+    </button>
+    <button id="btnCreateCardQR">
+        创建卡券二维码
+    </button>
 
-<button id="btnChooseImg">
-    选择图片
-</button>
+    <button id="btnChooseImg">
+        选择图片
+    </button>
 
-<button id="btnUploadImage">上传图片</button>
-
-
-<button id="btnChooseWXPay">支付</button>
-
-<button id="cc">
-    <a href="d.html">跳转</a>
-</button>
-<button id="tt">
-    <a>蓝牙</a>
-</button>
-
-<p id="result">
-
-</p>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-<script src="static/script/Jquery.WeChat.1.4.5.js" type="text/javascript"></script>
+    <button id="btnUploadImage">上传图片</button>
 
 
-<script type="text/javascript">
+    <button id="btnChooseWXPay">支付</button>
 
-    var cardid;
-    var wechatManage = $.WeChart({
-        api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
-        facid: '00000',
-        typenum: '2',
-        async: false
-    });
+    <button id="cc">
+        <a href="d.html">跳转</a>
+    </button>
+    <button id="tt">
+        <a>蓝牙111111111111111</a>
+    </button>
 
-    wechatManage.InitWeChat({
-        menu_share_timeline: true,
-        menu_share_appMessage: true,
-        menu_share_openWithSafari: true,
-        menu_share_qq: true,
-        menu_share_weiboApp: true,
-        menu_share_QZone: true
-    });
+    <p id="result">
+
+    </p>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="static/script/Jquery.WeChat.2.0.0.js" type="text/javascript"></script>
+    <script src="static/script/vconsole.min.js" type="text/javascript"></script>
 
 
-    wechatManage.Forword({
-        forword_title: 'KAKAK',
-        forword_link: 'http://www.baidu.com'
-    }, function (res) {
-        $("#result").html("分享成功：" + JSON.stringify(res));
-        alert('分享成功')
-    }, function (res) {
-        alert('取消分享')
-    });
+    <script type="text/javascript">
 
-    $("#btnScan").click(function () {
-        $.Scan(function (res) {
-            $("#result").html("扫描结果：" + res);
-        });
-    });
-
-
-    $("#btnLocation").click(function () {
-        wechatManage.GetLocation(function (res) {
-            $("#result").html("获取位置：" + JSON.stringify(res));
-            localStorage.setItem("location", JSON.stringify(res))
-        });
-    });
-    $("#tt").click(function () {
-
-        $.onSearchBeacons(function(c){
-            alert(c);
-
-        });
-
-    });
-
-
-    $("#btnOpenLocation").click(function () {
-        wechatManage.OpenLocation(JSON.parse(localStorage.getItem("location")));
-    });
-
-
-    $("#btnNetwork").click(function () {
-        wechatManage.GetNetWorkType(function (res) {
-            $("#result").html("获取网络：" + JSON.stringify(res));
-        });
-    });
-
-
-    wechatManage.ForwordToFriend({
-        forword_title: 'KAKAK',
-        forword_link: 'http://www.baidu.com'
-    }, function (res) {
-        $("#result").html("分享给朋友：" + JSON.stringify(res));
-    }, function (res) {
-        $("#result").html("取消分享给朋友：" + JSON.stringify(res));
-    });
-
-
-    wechatManage.ShareQQ({
-        forword_title: 'KAKAK',
-        forword_link: 'http://www.baidu.com'
-    }, function (res) {
-        $("#result").html("分享QQ：" + JSON.stringify(res));
-    }, function (res) {
-        $("#result").html("取消分享QQ：" + JSON.stringify(res));
-    });
-
-    wechatManage.ShareWeibo({
-        forword_title: 'KAKAK',
-        forword_link: 'http://www.baidu.com'
-    }, function (res) {
-        $("#result").html("分享到微博：" + JSON.stringify(res));
-    }, function (res) {
-        $("#result").html("取消分享到微博：" + JSON.stringify(res));
-    });
-
-    wechatManage.ShareQZone({
-        forword_title: 'KAKAK',
-        forword_link: 'http://www.baidu.com'
-    }, function (res) {
-        $("#result").html("分享到QQ空间：" + JSON.stringify(res));
-    }, function (res) {
-        $("#result").html("取消分享到QQ空间：" + JSON.stringify(res));
-    });
-
-    $("#btnYC").click(function () {
-        wechatManage.HideOptionMenu();
-    });
-    $("#btnXS").click(function () {
-        wechatManage.ShowOptionMenu();
-    });
-
-    $("#btnGB").click(function () {
-        wechatManage.CloseWindow();
-    });
-
-
-    var c, s;
-    //1、创建卡券（卡券创建成功的同时获取签名）
-    $("#btnCreateCard").click(function () {
-        var data = {
-            "card": {
-                "card_type": "GROUPON",
-                "groupon": {
-                    "base_info": {
-                        "logo_url": "http://i2.s1.dpfile.com/pc/mc/6758d752ef693239c5976837311b9c53(450c280)/thumb.jpg",
-                        "brand_name": "赤坂亭",
-                        "code_type": "CODE_TYPE_TEXT",
-                        "title": "200元赤坂亭现金券",
-                        "sub_title": "周末狂欢必备",
-                        "color": "Color010",
-                        "notice": "使用时向服务员出示此券",
-                        "service_phone": "020-10100011",
-                        "description": "关于吃饭这件事，高档的食材、优雅的环境、精致的摆盘固然是锦上添花，但最要紧的还是一份对于食物的用心，吃的是一份温暖的人情味。818魔都那些走心又走胃的美食店，从食物里感受一份真诚，给你一段难忘的回忆。",
-                        "date_info": {
-                            "type": "DATE_TYPE_FIX_TIME_RANGE",
-                            "begin_timestamp": 1476096689,
-                            "end_timestamp": 1479392689
-                        },
-                        "sku": {
-                            "quantity": 1
-                        },
-                        "get_limit": 1,
-                        "use_custom_code": false,
-                        "bind_openid": false,
-                        "can_share": false,
-                        "can_give_friend": false,
-                        "location_id_list": [
-                            123,
-                            12321,
-                            345345
-                        ],
-                        "custom_url_name": "立即使用",
-                        "custom_url": "http://www.dianping.com/search/keyword/1/0_%E8%B5%A4%E5%9D%82%E4%BA%AD",
-                        "custom_url_sub_title": "赤坂亭",
-                        "promotion_url_name": "更多优惠",
-                        "promotion_url": "http://t.dianping.com/shanghai",
-                        "source": "大众点评"
-                    },
-                    "deal_detail": "您在消费时，出示打印的团购券序列号凭证或团购券序列号短信即可。商户会验证的。无论您选择哪种方式，每个团购券序列号只能使用一次。"
-                }
-            }
-        };
-        wechatManage.CreateCard({
-            api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card',
-            data: data
-        }, function (result, errorcode, cardid) {
-            if (errorcode === 0) {
-                c = cardid;
-                localStorage.setItem("cardid", cardid);
-                alert('ok')
-            } else {
-                alert(result.errmsg);
-            }
-            wechatManage.GetWxCardSignature({
+        var vConsole = new VConsole();
+        
+        async function Init() {
+            var res = { "APPID": "wxc46c96addcb23ab9", "TIMESTAMP": "1448938941", "NONCESTR": "k4DIrgjFCvQ2xRRE", "SIGNATURE": "41e483e544126d13b8c52d38fa0dcbe0d2a2b27e" };
+            var cardid;
+            var wechatManage = await $.WeChart({
                 api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
-                cardid: localStorage.getItem("cardid")
-            }, function (result, Signature_api_ticket) {
-                localStorage.setItem("Signature_api_ticket", Signature_api_ticket);
-                console.log(s);
-            });
-        });
-    });
-
-    $("#btnAddCard").click(function () {
-        wechatManage.AddCard({
-            cardid: localStorage.getItem("cardid"),
-            nonceStr: '',
-            timestamp: '',
-            signature: ''
-        }, function (res, cardlist) {
-            alert(JSON.parse(cardlist))
-        });
-    });
-
-    //创建卡券二维码（也需要cardid）
-    $("#btnCreateCardQR").click(function () {
-        var data = {
-            "action_name": "QR_CARD",
-            "expire_seconds": 1800,
-            "action_info": {
-                "card": {
-                    "card_id": localStorage.getItem("cardid"),
-                    "code": "",
-                    "openid": "",
-                    "is_unique_code": false,
-                    "outer_id": 1
+                data: {
+                    facid: '00000',
+                    typenum: '2',
                 }
-            }
-        };
-        wechatManage.CreateCardQR({
-            api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR',
-            data: {
-                'Access_Token': '',
-                'Data': {'DataInfo': JSON.stringify(data)}
-            }
-        }, function (result, errorcode, qrcode_url) {
-            var img = '<img src="' + qrcode_url + '" >';
-            alert(errorcode);
-            $("#result").html(img);
+            });
 
-        });
-    });
+            // var wechatManage = await $.WeChart({
+            //     appId: res && res.APPID,
+            //     timestamp: res && res.TIMESTAMP,
+            //     nonceStr: res && res.NONCESTR,
+            //     signature: res && res.SIGNATURE,
+            //     access_token: res && res.ACCESS_TOKEN
+            // });
 
 
-    $("#btnChooseImg").click(function () {
-        wechatManage.ChooseImg(function (res, localIds) {
-            localStorage.setItem("localIds", localIds);
-            $("#result").html("选择图片：" + JSON.stringify(res));
-        });
-    });
+            wechatManage.InitWeChat({
+                menu_share_timeline: true,
+                menu_share_appMessage: true,
+                menu_share_openWithSafari: true,
+                menu_share_qq: true,
+                menu_share_weiboApp: true,
+                menu_share_QZone: true
+            });
 
 
-    $("#btnUploadImage").click(function () {
-        wechatManage.UploadImage(localStorage.getItem("localIds"), function (res, serverId) {
-            $("#result").html("上传图片：" + JSON.stringify(res));
-        });
-    });
+            wechatManage.Forword({
+                forword_title: 'KAKAK',
+                forword_link: 'http://www.baidu.com'
+            }, function (res) {
+                $("#result").html("分享成功：" + JSON.stringify(res));
+                alert('分享成功')
+            }, function (res) {
+                alert('取消分享')
+            });
 
 
-    $("#btnChooseWXPay").click(function () {
-        wechatManage.ChooseWXPay({
-            timestamp: '', // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-            nonceStr: '', // 支付签名随机串，不长于 32 位
-            package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-            signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-            paySign: '' // 支付签名
-        }, function (res) {
-            $("#result").html("微信支付：" + JSON.stringify(res));
-        });
-    });
-    $("button").click(function () {
-        navigator.vibrate(2);
-    });
-</script>
+
+            $("#btnScan").click(function () {
+                $.Scan(function (res) {
+                    $("#result").html("扫描结果：" + res);
+                });
+            });
+
+            let l = {};
+            $("#btnLocation").click(function () {
+                wechatManage.GetLocation(function (res) {
+                    $("#result").html("获取位置：" + JSON.stringify(res));
+                    l = res;
+                    localStorage.setItem("location", JSON.stringify(res))
+                });
+            });
+            $("#tt").click(function () {
+
+                $.onSearchBeacons(function (c) {
+                    alert(c);
+
+                });
+
+            });
+
+
+            $("#btnOpenLocation").click(function () {
+                wechatManage.OpenLocation({ ...l, infoUrl: 'http://baidu.com' });
+            });
+
+
+            $("#btnNetwork").click(function () {
+                wechatManage.GetNetWorkType(function (res) {
+                    $("#result").html("获取网络：" + JSON.stringify(res));
+                });
+            });
+
+
+            wechatManage.ForwordToFriend({
+                forword_title: 'KAKAK',
+                forword_link: 'http://www.baidu.com'
+            }, function (res) {
+                $("#result").html("分享给朋友：" + JSON.stringify(res));
+            }, function (res) {
+                $("#result").html("取消分享给朋友：" + JSON.stringify(res));
+            });
+
+
+            wechatManage.ShareQQ({
+                forword_title: 'KAKAK',
+                forword_link: 'http://www.baidu.com'
+            }, function (res) {
+                $("#result").html("分享QQ：" + JSON.stringify(res));
+            }, function (res) {
+                $("#result").html("取消分享QQ：" + JSON.stringify(res));
+            });
+
+            wechatManage.ShareWeibo({
+                forword_title: 'KAKAK',
+                forword_link: 'http://www.baidu.com'
+            }, function (res) {
+                $("#result").html("分享到微博：" + JSON.stringify(res));
+            }, function (res) {
+                $("#result").html("取消分享到微博：" + JSON.stringify(res));
+            });
+
+            wechatManage.ShareQZone({
+                forword_title: 'KAKAK',
+                forword_link: 'http://www.baidu.com'
+            }, function (res) {
+                $("#result").html("分享到QQ空间：" + JSON.stringify(res));
+            }, function (res) {
+                $("#result").html("取消分享到QQ空间：" + JSON.stringify(res));
+            });
+
+            $("#btnYC").click(function () {
+                wechatManage.HideOptionMenu();
+            });
+            $("#btnXS").click(function () {
+                wechatManage.ShowOptionMenu();
+            });
+
+            $("#btnGB").click(function () {
+                wechatManage.CloseWindow();
+            });
+
+
+            var c, s;
+            //1、创建卡券（卡券创建成功的同时获取签名）
+            $("#btnCreateCard").click(function () {
+                var data = {
+                    "card": {
+                        "card_type": "GROUPON",
+                        "groupon": {
+                            "base_info": {
+                                "logo_url": "http://i2.s1.dpfile.com/pc/mc/6758d752ef693239c5976837311b9c53(450c280)/thumb.jpg",
+                                "brand_name": "赤坂亭",
+                                "code_type": "CODE_TYPE_TEXT",
+                                "title": "200元赤坂亭现金券",
+                                "sub_title": "周末狂欢必备",
+                                "color": "Color010",
+                                "notice": "使用时向服务员出示此券",
+                                "service_phone": "020-10100011",
+                                "description": "关于吃饭这件事，高档的食材、优雅的环境、精致的摆盘固然是锦上添花，但最要紧的还是一份对于食物的用心，吃的是一份温暖的人情味。818魔都那些走心又走胃的美食店，从食物里感受一份真诚，给你一段难忘的回忆。",
+                                "date_info": {
+                                    "type": "DATE_TYPE_FIX_TIME_RANGE",
+                                    "begin_timestamp": 1476096689,
+                                    "end_timestamp": 1479392689
+                                },
+                                "sku": {
+                                    "quantity": 1
+                                },
+                                "get_limit": 1,
+                                "use_custom_code": false,
+                                "bind_openid": false,
+                                "can_share": false,
+                                "can_give_friend": false,
+                                "location_id_list": [
+                                    123,
+                                    12321,
+                                    345345
+                                ],
+                                "custom_url_name": "立即使用",
+                                "custom_url": "http://www.dianping.com/search/keyword/1/0_%E8%B5%A4%E5%9D%82%E4%BA%AD",
+                                "custom_url_sub_title": "赤坂亭",
+                                "promotion_url_name": "更多优惠",
+                                "promotion_url": "http://t.dianping.com/shanghai",
+                                "source": "大众点评"
+                            },
+                            "deal_detail": "您在消费时，出示打印的团购券序列号凭证或团购券序列号短信即可。商户会验证的。无论您选择哪种方式，每个团购券序列号只能使用一次。"
+                        }
+                    }
+                };
+                wechatManage.CreateCard({
+                    api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_Card',
+                    data: data
+                }, function (result, errorcode, cardid) {
+                    if (errorcode === 0) {
+                        c = cardid;
+                        localStorage.setItem("cardid", cardid);
+                        alert('ok')
+                    } else {
+                        alert(result.errmsg);
+                    }
+                    wechatManage.GetWxCardSignature({
+                        api: 'http://dmapi.yesno.com.cn/api/wechat/GetWxInfoAndSign',
+                        cardid: localStorage.getItem("cardid")
+                    }, function (result, Signature_api_ticket) {
+                        localStorage.setItem("Signature_api_ticket", Signature_api_ticket);
+                        console.log(s);
+                    });
+                });
+            });
+
+            $("#btnAddCard").click(function () {
+                wechatManage.AddCard({
+                    cardid: localStorage.getItem("cardid"),
+                    nonceStr: '',
+                    timestamp: '',
+                    signature: ''
+                }, function (res, cardlist) {
+                    alert(JSON.parse(cardlist))
+                });
+            });
+
+            //创建卡券二维码（也需要cardid）
+            $("#btnCreateCardQR").click(function () {
+                var data = {
+                    "action_name": "QR_CARD",
+                    "expire_seconds": 1800,
+                    "action_info": {
+                        "card": {
+                            "card_id": localStorage.getItem("cardid"),
+                            "code": "",
+                            "openid": "",
+                            "is_unique_code": false,
+                            "outer_id": 1
+                        }
+                    }
+                };
+                wechatManage.CreateCardQR({
+                    api: 'http://dmapi.yesno.com.cn/api/wechat/CreateWX_CardQR',
+                    data: {
+                        'Access_Token': '',
+                        'Data': { 'DataInfo': JSON.stringify(data) }
+                    }
+                }, function (result, errorcode, qrcode_url) {
+                    var img = '<img src="' + qrcode_url + '" >';
+                    alert(errorcode);
+                    $("#result").html(img);
+
+                });
+            });
+
+
+            $("#btnChooseImg").click(function () {
+                wechatManage.ChooseImg(function (res, localIds) {
+                    localStorage.setItem("localIds", localIds);
+                    $("#result").html("选择图片：" + JSON.stringify(res));
+                });
+            });
+
+
+            $("#btnUploadImage").click(function () {
+                wechatManage.UploadImage(localStorage.getItem("localIds"), function (res, serverId) {
+                    $("#result").html("上传图片：" + JSON.stringify(res));
+                });
+            });
+
+
+            $("#btnChooseWXPay").click(function () {
+                wechatManage.ChooseWXPay({
+                    timestamp: '', // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                    nonceStr: '', // 支付签名随机串，不长于 32 位
+                    package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                    signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                    paySign: '' // 支付签名
+                }, function (res) {
+                    $("#result").html("微信支付：" + JSON.stringify(res));
+                });
+            });
+
+        }
+
+        Init();
+    </script>
 </body>
+
 </html>
